@@ -1,0 +1,52 @@
+@import "../../../styles/breakPoints";
+@import "../../../styles/variables";
+
+.searchItem {
+  color: white;
+  display: flex;
+  column-gap: 6px;
+  padding: 12px 8px;
+
+  input {
+    margin: 0;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    accent-color: $colorPrimary;
+  }
+
+  &:not(:last-child) {
+    border-bottom: 1px solid $colorSecondary;
+  }
+
+  [role="image-wrapper"] {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  [role="info"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (min-width: $xl) {
+  .searchItem {
+    column-gap: 10px;
+
+    [role="info"] {
+      column-gap: 20px;
+    }
+  }
+}
