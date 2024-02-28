@@ -1,0 +1,42 @@
+@import "../../src/styles/variables";
+
+.xsSizeIcon {
+  width: 14px;
+  height: 14px;
+}
+
+.sSizeIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.mSizeIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.lSizeIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.xlSizeIcon {
+  width: 30px;
+  height: 30px;
+}
+
+.primaryIcon {
+  fill: $colorPrimary;
+}
+
+.secondaryIcon {
+  fill: $colorSecondary;
+}
+
+.tertiaryIcon {
+  fill: $colorMortyYellow;
+}
+
+.evilThema {
+  fill: $ColorEvilThema;
+}

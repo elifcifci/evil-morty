@@ -1,0 +1,17 @@
+@import "../../../styles/variables";
+
+.selectedItemWrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+  background-color: $colorPrimary;
+  width: max-content;
+  color: #000;
+  padding: 6px 8px;
+  border-radius: 10px;
+  color: white;
+}
+
+.xMark {
+  fill: $colorBlack;
+}
