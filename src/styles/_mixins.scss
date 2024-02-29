@@ -1,0 +1,65 @@
+@mixin customGrid(
+  $gap: 10px,
+  $desktopGap: 20px,
+  $initialGrid: 1,
+  $gridForSm: 0,
+  $gridForM: 0,
+  $gridForL: 0,
+  $gridForXl: 0,
+  $gridForXxl: 0
+) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style-type: none;
+  gap: $gap;
+  padding: 0;
+  list-style-type: none;
+  margin-bottom: 0;
+
+  li {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: calc((100% - $gap * ($initialGrid - 1)) / ($initialGrid));
+  }
+
+  @if $gridForSm != 0 {
+    @media screen and (min-width: $sm) {
+      li {
+        max-width: calc((100% - $gap * ($gridForSm - 1)) / ($gridForSm));
+      }
+    }
+  }
+
+  @if $gridForM != 0 {
+    @media screen and (min-width: $m) {
+      li {
+        max-width: calc((100% - $gap * ($gridForM - 1)) / ($gridForM));
+      }
+    }
+  }
+
+  @if $gridForL != 0 {
+    @media screen and (min-width: $l) {
+      li {
+        max-width: calc((100% - $gap * ($gridForL - 1)) / ($gridForL));
+      }
+    }
+  }
+
+  @if $gridForXl != 0 {
+    @media screen and (min-width: $xl) {
+      li {
+        max-width: calc((100% - $desktopGap * ($gridForXl - 1)) / ($gridForXl));
+      }
+    }
+  }
+
+  @if $gridForXxl != 0 {
+    @media screen and (min-width: $xxl) {
+      li {
+        max-width: calc((100% - $desktopGap * ($gridForXxl - 1)) / ($gridForXxl));
+      }
+    }
+  }
+}
