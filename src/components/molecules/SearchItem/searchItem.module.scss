@@ -4,7 +4,7 @@
 .searchItem {
   color: white;
   display: flex;
-  column-gap: 6px;
+  column-gap: 12px;
   padding: 12px 8px;
 
   input {
@@ -22,14 +22,14 @@
   [role="image-wrapper"] {
     width: 50px;
     height: 50px;
-    border-radius: 10px;
-    
+
     img {
+      border-radius: 8px;
       width: 100%;
       height: 100%;
     }
   }
-  
+
   [role="info"] {
     display: flex;
     flex-direction: column;
@@ -47,6 +47,11 @@
 
     [role="info"] {
       column-gap: 20px;
+    }
+
+    [role="image-wrapper"] {
+      width: 60px;
+      height: 60px;
     }
   }
 }
