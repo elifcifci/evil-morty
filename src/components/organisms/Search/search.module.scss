@@ -40,6 +40,12 @@
   overflow-y: scroll;
 }
 
+.quote {
+  color: white;
+  padding: 8px 12px;
+  text-align: center;
+}
+
 @media screen and (min-width: $sm) {
   .seachWrapper {
     width: 100%;

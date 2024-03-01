@@ -1,0 +1,15 @@
+export const quotesFromMorty = [
+  "Rick, you're not looking at the big picture. You'll figure it out when you're older.",
+  "This seems like a good time for a drink, and a cold, calculated speech with sinister overtones. A speech about politics, about order, brotherhood, power. But speeches are for campaigning. Now is the time for action.",
+  "You don't have to try to impress me, Morty. You already have.",
+  "You're not the first Rick to lose a Morty. You're not the first Rick to lose a family.",
+  "They say the smartest Mortys become Ricks.",
+  "Mortys are raised to be sidekicks. Without a sidekick, a Rick could be killed by an assassin.",
+  "A cocky Morty can lead to some big problems. It can be a real bad thing for everybody.",
+  "The division of the Ricks is the idea of the Mortys. Every version of us has a Rick that died. The Council of Ricks don't like to keep secrets like that.",
+  "I'm not different from any of you. I remember moments of kindness. All I remember is that I cared about my Morty. Then I got too big. The universe spiraled out of control. And I had to transfer my brain into this body just to survive.",
+  "We are not them. We are not them.",
+  "Ricks don't care about Mortys. And Mortys don't care about Ricks.",
+  "Evil Rick wasn't controlling the other Ricks. He was being controlled by them.",
+  "All of you were behind the death of countless numbers of innocent Mortys, including my own.",
+];
