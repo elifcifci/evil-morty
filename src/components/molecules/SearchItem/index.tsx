@@ -29,8 +29,17 @@ const SeachItem = ({
   };
 
   return (
-    <li className={styles.searchItem} onClick={handleClick}>
-      <input ref={inputRef} type="checkbox" id={id} value={name} />
+    <li
+      tabIndex={0}
+      className={styles.searchItem}
+      onClick={handleClick}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          handleClick();
+        }
+      }}
+    >
+      <input ref={inputRef} tabIndex={-1} type="checkbox" id={id} value={name} />
       <div role="image-wrapper">
         <img src={image} alt={name} />
       </div>
