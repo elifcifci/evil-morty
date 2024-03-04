@@ -1,15 +1,17 @@
 import "./App.css";
-import Seach from "./components/organisms/Search";
+import Main from "./pages/Main/index";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <Seach />
-
-      <div>
-        <img src="/images/portal.gif" alt="Portal" />
-      </div>
-
+      <BrowserRouter>
+        <Routes>
+          <>
+            <Route path="/" element={<Main />} />
+          </>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
