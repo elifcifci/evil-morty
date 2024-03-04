@@ -1,5 +1,4 @@
 @import "../../../styles/breakPoints";
-@import "../../../styles/mixins";
 @import "../../../styles/variables";
 
 .seachWrapper {
@@ -8,7 +7,7 @@
   flex-direction: column;
   row-gap: 14px;
   max-width: 750px;
-
+  
   /* width */
   ::-webkit-scrollbar {
     width: 12px;
@@ -17,7 +16,6 @@
   /* Track */
   ::-webkit-scrollbar-track {
     border-radius: 7px;
-    box-shadow: inset 0 0 5px grey;
   }
 
   /* Handle */
@@ -26,24 +24,6 @@
     border-radius: 7px;
     transition: 5ms all ease;
   }
-}
-
-.searchItems {
-  @include customGrid($gap: 0px, $gridForL: 2);
-  border-radius: 10px;
-  border: 3px solid $colorSecondary;
-  background-color: $colorBlack;
-  padding: 0px 12px;
-  margin: 0;
-  max-height: 60vh;
-  overflow: hidden;
-  overflow-y: scroll;
-}
-
-.quote {
-  color: white;
-  padding: 8px 12px;
-  text-align: center;
 }
 
 @media screen and (min-width: $sm) {

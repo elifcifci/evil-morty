@@ -1,18 +1,26 @@
 import { XMark } from "../../../../public/icons/XMark";
-import styles from "./searchedItem.module.scss";
+import styles from "./styles.module.scss";
+import { ISeachItemProps } from "../../../interfaces/SearchProps";
 
-interface ISeachItemProps {
-  id: string;
-  value: string;
-}
+const SelectedItem = ({
+  id,
+  value,
+  selectedItems,
+  setSelectedItems,
+}: ISeachItemProps) => {
+  let removedItemsCheckbox: HTMLInputElement;
 
-const SelectedItem = ({ id, value }: ISeachItemProps) => {
-  const handleKeyDown = () => {
-    console.log("silme isteği alındı.");
+  const handleRemove = () => {
+    setSelectedItems(selectedItems.filter((item) => item.id != id));
+
+    removedItemsCheckbox = document.getElementsByName(
+      `checkbox-${id}`
+    )[0] as HTMLInputElement;
+    removedItemsCheckbox.checked = false;
   };
 
   return (
-    <div
+    <li
       className={styles.selectedItemWrapper}
       onClick={(e) => e.stopPropagation()}
     >
@@ -21,13 +29,15 @@ const SelectedItem = ({ id, value }: ISeachItemProps) => {
         tabIndex={0}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
-            handleKeyDown();
+            handleRemove();
           }
         }}
       >
-        <XMark iconSize="xs" className={styles.xMark} />
+        <div className={styles.xMark} onClick={handleRemove}>
+          <XMark iconSize="xs" />
+        </div>
       </div>
-    </div>
+    </li>
   );
 };
 

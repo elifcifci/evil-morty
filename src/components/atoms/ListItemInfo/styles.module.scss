@@ -1,0 +1,19 @@
+@import "../../../styles/variables";
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  p {
+    margin: 0;
+  }
+
+  [role="character-name"] {
+    span:nth-child(2) {
+      font-weight: bolder;
+      color: $colorSecondary;
+    }
+  }
+}
+
