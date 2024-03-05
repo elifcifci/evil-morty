@@ -1,5 +1,5 @@
 import "./App.css";
-import Main from "./pages/Main/index";
+import LandingPage from "./pages/LandingPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <>
-            <Route path="/" element={<Main />} />
+            <Route path="/" element={<LandingPage />} />
           </>
         </Routes>
       </BrowserRouter>

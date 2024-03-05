@@ -52,16 +52,14 @@ export interface IListItemInfoProps {
   name: string;
   inputValue: string;
   episodes: number;
-  image: string
+  image: string;
 }
-
 
 export interface IPortalProps {
   className?: string;
-  imageSize: "s" | "m" | "l"
+  imageSize: "s" | "m" | "l";
 }
 
-
 export interface ISearchProps {
-  isEvilMode: boolean
+  isEvilMode: boolean;
 }

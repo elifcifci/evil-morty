@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const apiUrl = "https://rickandmortyapi.com/api/";
+const apiUrl = "https://rickandmortyapi.com/api/c";
 
-export const getRicks = () => {
+export const getCharacters = () => {
   return axios
     .get(`${apiUrl}character`)
     .then((response) => {
