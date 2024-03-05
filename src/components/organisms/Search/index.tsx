@@ -13,7 +13,7 @@ const Seach = ({ isEvilMode, error, apiData }: ISearchProps) => {
 
   return (
     <div className={styles.seachWrapper}>
-      {error ? (
+      {error.message ? (
         <ErrorText error={error} />
       ) : (
         <>

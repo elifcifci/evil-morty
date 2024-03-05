@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = "https://rickandmortyapi.com/api/c";
+const apiUrl = "https://rickandmortyapi.com/api/";
 
 export const getCharacters = () => {
   return axios
