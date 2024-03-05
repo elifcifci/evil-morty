@@ -2,19 +2,20 @@
 @import "../../../styles/variables";
 
 .searchItems {
-    @include customGrid($gap: 0px, $gridForL: 2);
-    border-radius: 10px;
-    border: 3px solid $colorSecondary;
-    background-color: $colorBlack;
-    padding: 0px 12px 0px 24px;
-    margin: 0;
-    max-height: 50vh;
-    overflow: hidden;
-    overflow-y: scroll;
-  }
-  
+  @include customGrid($gap: 0px, $gridForL: 2);
+  align-items: center;
+  border-radius: 10px;
+  border: 3px solid $colorSecondary;
+  background-color: $colorBlack;
+  padding: 0px 12px 0px 24px;
+  margin: 0;
+  height: 50vh;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
 .quote {
-    color: white;
-    padding: 8px 12px;
-    text-align: center;
-  }
+  color: white;
+  padding: 8px 12px;
+  text-align: center;
+}

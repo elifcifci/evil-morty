@@ -1,6 +1,5 @@
-import React, { Suspense } from "react";
+import React from "react";
 import Portal from "../../components/atoms/Portal";
-import Loading from "../../components/atoms/Loading";
 import Notification from "../../components/molecules/Notification";
 import Seach from "../../components/organisms/Search";
 import { getCharacters } from "../../api/ricks-api";
@@ -12,9 +11,8 @@ const LandingPage = ({
   isOpenedNotification,
   setIsOpenedNotification,
 }: ILandingPageProps) => {
-
   const [isEvilMode, setIsEvilMode] = React.useState(false);
-  const [apiData, setApiData] = React.useState([]);
+  const [apiData, setApiData] = React.useState();
   const [error, setError] = React.useState<IErrorStateProps>({
     message: undefined,
     status: undefined,
@@ -27,26 +25,24 @@ const LandingPage = ({
       })
       .catch((err) => {
         console.log(err);
-        setIsOpenedNotification(true)
+        setIsOpenedNotification(true);
         setError({ message: err.message, status: err.response.status });
       });
   }, []);
 
   return (
-    <Suspense fallback={<Loading />}>
-      <div className={styles.mainPageContainer}>
-        {isOpenedNotification && (
-          <Notification
-            type="error"
-            text={error.message}
-            status={error.status}
-            setIsOpenedNotification={setIsOpenedNotification}
-          />
-        )}
-        <Portal className={styles.portal} imageSize="s" />
-        <Seach isEvilMode={isEvilMode} error={error} apiData={apiData} />
-      </div>
-    </Suspense>
+    <div className={styles.mainPageContainer}>
+      {isOpenedNotification && (
+        <Notification
+          type="error"
+          text={error.message}
+          status={error.status}
+          setIsOpenedNotification={setIsOpenedNotification}
+        />
+      )}
+      <Portal className={styles.portal} imageSize="s" />
+      <Seach isEvilMode={isEvilMode} error={error} apiData={apiData} />
+    </div>
   );
 };
 
