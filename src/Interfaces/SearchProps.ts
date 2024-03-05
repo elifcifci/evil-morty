@@ -1,4 +1,6 @@
+import React from "react";
 import { IAllCharacterProp } from "./apiInterfaces";
+import { IErrorStateProps } from "./erorInterfaces";
 
 export interface ISelectedListProps {
   selectedItems: { id: string; name: string }[];
@@ -62,4 +64,6 @@ export interface IPortalProps {
 
 export interface ISearchProps {
   isEvilMode: boolean;
+  error:IErrorStateProps;
+  apiData: IAllCharacterProp[];
 }
