@@ -1,0 +1,45 @@
+@import "../../../styles/variables";
+@import "../../../styles/breakPoints";
+.errorWrapper {
+  display: flex;
+  border: 3px solid $colorRickBlue;
+  background-color: $colorBlack;
+  padding: 0px 6px 0px 12px;
+  max-height: 50vh;
+  border-radius: 10px;
+
+  [role="img-wrapper"] {
+    width: 150px;
+    height: 292px;
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  p {
+    color: $colorRickBlue;
+    text-align: center;
+    margin: auto 0;
+    padding-right: 30px;
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-widt: $xl) {
+  .errorWrapper {
+    padding: 0px 12px 0px 24px;
+
+    [role="img-wrapper"] {
+      width: 250px;
+      height: 377px;
+    }
+
+    p {
+      padding-right: 60px;
+      font-size: 20px;
+    }
+  }
+}

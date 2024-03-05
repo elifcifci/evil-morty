@@ -16,7 +16,7 @@ const ListItemInfo = ({
   return (
     <>
       <div role="image-wrapper">
-        <img src={image} alt={name} />
+        <img loading="lazy" src={image} alt={name} />
       </div>
       <div className={styles.infoWrapper}>
         <div>

@@ -15,8 +15,6 @@ const ListItem = ({
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   const handleKeyDownAndClick = () => {
-    console.log("inputRef", inputRef);
-    
     if (inputRef.current !== null) {
       inputRef.current.checked = !inputRef.current.checked;
 
