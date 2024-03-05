@@ -40,7 +40,7 @@ export interface ISeachInputProps {
 }
 
 export interface IListProps {
-  apiData: IAllCharacterProp[];
+  apiData: undefined | IAllCharacterProp[];
   inputValue: string;
   isEvilMode: boolean;
   selectedItems: { id: string; name: string }[];
@@ -65,5 +65,5 @@ export interface IPortalProps {
 export interface ISearchProps {
   isEvilMode: boolean;
   error:IErrorStateProps;
-  apiData: IAllCharacterProp[];
+  apiData: undefined | IAllCharacterProp[];
 }

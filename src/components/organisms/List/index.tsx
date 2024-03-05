@@ -2,6 +2,7 @@ import ListItem from "../../molecules/ListItem/index";
 import { IListProps } from "../../../interfaces/SearchProps";
 import { IAllCharacterProp } from "../../../interfaces/apiInterfaces";
 import { quotesFromMorty } from "../../../constants/quotesFromMorty";
+import Loading from "../../../../public/icons/Loading";
 import styles from "./styles.module.scss";
 
 const List = ({
@@ -11,18 +12,21 @@ const List = ({
   selectedItems,
   setSelectedItems,
 }: IListProps) => {
-  const filteredList = apiData.filter((obj: IAllCharacterProp) =>
+  const filteredList = apiData?.filter((obj: IAllCharacterProp) =>
     obj.name.toLowerCase().includes(inputValue.toLowerCase())
   );
 
   return (
     <ul className={styles.searchItems}>
-      {filteredList.length === 0 ? (
+      {/* loading state controls here. if we have apiData, we can reach the filteredList. */}
+      {apiData === undefined ? (
+        <Loading />
+      ) : filteredList?.length === 0 ? (
         <li className={styles.quote}>
           {isEvilMode ? quotesFromMorty[0] : "Please, listen to Evil morty!"}
         </li>
       ) : (
-        filteredList.map((obj: IAllCharacterProp) => {
+        filteredList?.map((obj: IAllCharacterProp) => {
           return (
             <ListItem
               key={`${obj.id}-${obj.name}`}
@@ -40,5 +44,4 @@ const List = ({
     </ul>
   );
 };
-
 export default List;
