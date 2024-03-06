@@ -51,6 +51,8 @@ export interface IListProps {
   setSelectedItems: React.Dispatch<
     React.SetStateAction<{ id: string; name: string }[]>
   >;
+  notFountText: string | undefined;
+  setNotFountText: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
 
 export interface IListItemInfoProps {
@@ -70,9 +72,12 @@ export interface ISearchProps {
   isEvilMode: boolean;
   error: IErrorStateProps;
   apiData: undefined | IAllCharacterProp[];
+  notFountText: string | undefined;
+  setNotFountText: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
 
 export interface IEvilMortyThemaProps {
   isEvilMode: boolean;
   setIsEvilMode: React.Dispatch<React.SetStateAction<boolean>>;
+  setNotFountText: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
