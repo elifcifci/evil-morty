@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import { ISeachItemProps } from "../../../interfaces/SearchProps";
 
 const SelectedItem = ({
+  isEvilMode,
   id,
   value,
   selectedItems,
@@ -21,7 +22,7 @@ const SelectedItem = ({
 
   return (
     <li
-      className={styles.selectedItemWrapper}
+      className={`${styles.selectedItemWrapper} ${isEvilMode ? styles.evilTheme : ""}`}
       onClick={(e) => e.stopPropagation()}
     >
       <span id={id}>{value}</span>

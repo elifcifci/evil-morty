@@ -1,6 +1,7 @@
 import React from "react";
 
 export interface ILandingPageProps {
-    isOpenedNotification: boolean;
-    setIsOpenedNotification: React.Dispatch<React.SetStateAction<boolean>>
+  isEvilMode: boolean;
+  isOpenedNotification: boolean;
+  setIsOpenedNotification: React.Dispatch<React.SetStateAction<boolean>>;
 }

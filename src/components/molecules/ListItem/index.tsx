@@ -4,6 +4,7 @@ import { ISeachListItemProps } from "../../../interfaces/SearchProps";
 import styles from "./searchItem.module.scss";
 
 const ListItem = ({
+  isEvilMode,
   id,
   name,
   image,
@@ -29,7 +30,7 @@ const ListItem = ({
   return (
     <li
       tabIndex={0}
-      className={styles.searchItem}
+      className={`${styles.searchItem} ${isEvilMode ? styles.evilTheme : ""}`}
       onClick={handleKeyDownAndClick}
       onKeyDown={(e) => {
         if (e.key === "Enter") {
@@ -38,6 +39,7 @@ const ListItem = ({
       }}
     >
       <input
+        onClick={handleKeyDownAndClick}
         ref={inputRef}
         tabIndex={-1}
         type="checkbox"

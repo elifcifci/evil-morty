@@ -1,17 +1,28 @@
 @import "../../../styles/mixins";
+@import "../../../styles/animations";
 @import "../../../styles/variables";
+
+.listWrapper {
+  height: 50vh;
+  border: 3px solid $colorMortyYellow;
+  background-color: $colorBlack;
+  border-radius: 10px;
+  @include transition(border);
+}
 
 .searchItems {
   @include customGrid($gap: 0px, $gridForL: 2);
   align-items: center;
-  border-radius: 10px;
-  border: 3px solid $colorSecondary;
-  background-color: $colorBlack;
   padding: 0px 12px 0px 24px;
   margin: 0;
-  height: 50vh;
+  max-height: 50vh;
   overflow: hidden;
   overflow-y: scroll;
+}
+
+.evilTheme {
+  border: 3px solid $colorEvilTheme;
+  @include transition(border);
 }
 
 .quote {
