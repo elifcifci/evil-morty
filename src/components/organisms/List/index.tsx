@@ -17,31 +17,36 @@ const List = ({
   );
 
   return (
-    <ul className={styles.searchItems}>
-      {/* loading state controls here. if we have apiData, we can reach the filteredList. */}
-      {apiData === undefined ? (
-        <Loading />
-      ) : filteredList?.length === 0 ? (
-        <li className={styles.quote}>
-          {isEvilMode ? quotesFromMorty[0] : "Please, listen to Evil morty!"}
-        </li>
-      ) : (
-        filteredList?.map((obj: IAllCharacterProp) => {
-          return (
-            <ListItem
-              key={`${obj.id}-${obj.name}`}
-              selectedItems={selectedItems}
-              setSelectedItems={setSelectedItems}
-              inputValue={inputValue}
-              id={obj.id.toString()}
-              name={obj.name.trim()}
-              image={obj.image}
-              episodes={obj.episode.length}
-            />
-          );
-        })
-      )}
-    </ul>
+    <div
+      className={`${styles.listWrapper} ${isEvilMode ? styles.evilTheme : ""}`}
+    >
+      <ul className={styles.searchItems}>
+        {/* loading state controls here. if we have apiData, we can reach the filteredList. */}
+        {apiData === undefined ? (
+          <Loading />
+        ) : filteredList?.length === 0 ? (
+          <li className={styles.quote}>
+            {isEvilMode ? quotesFromMorty[0] : "Please, listen to Evil morty!"}
+          </li>
+        ) : (
+          filteredList?.map((obj: IAllCharacterProp) => {
+            return (
+              <ListItem
+                isEvilMode={isEvilMode}
+                key={`${obj.id}-${obj.name}`}
+                selectedItems={selectedItems}
+                setSelectedItems={setSelectedItems}
+                inputValue={inputValue}
+                id={obj.id.toString()}
+                name={obj.name.trim()}
+                image={obj.image}
+                episodes={obj.episode.length}
+              />
+            );
+          })
+        )}
+      </ul>
+    </div>
   );
 };
 export default List;

@@ -8,10 +8,10 @@ import { IErrorStateProps } from "../../interfaces/erorInterfaces";
 import { ILandingPageProps } from "../../interfaces/pageInterfaces";
 
 const LandingPage = ({
+  isEvilMode,
   isOpenedNotification,
   setIsOpenedNotification,
 }: ILandingPageProps) => {
-  const [isEvilMode, setIsEvilMode] = React.useState(false);
   const [apiData, setApiData] = React.useState();
   const [error, setError] = React.useState<IErrorStateProps>({
     message: undefined,

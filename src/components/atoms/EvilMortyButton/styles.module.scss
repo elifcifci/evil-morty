@@ -1,0 +1,71 @@
+@import "../../../styles/variables";
+@import "../../../styles/animations";
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 750px;
+  margin: 0 auto;
+  position: relative;
+  top: 50px;
+  right: 10px;
+}
+
+.evilThemeButton {
+  background-color: $colorBlack;
+  border-radius: 50px;
+  width: 120px;
+  height: 48px;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+
+  [role="img-wrapper"] {
+    position: absolute;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .evilHead {
+    top: -1px;
+    width: 50px;
+
+    img:last-child {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  .mortyHead {
+    width: 50px;
+    top: -55px;
+
+    img:first-child {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+}
+
+.mortyThema {
+  border: solid 3px $colorMortyYellow;
+  @include transition(border);
+
+  [role="img-wrapper"] {
+    @include transition(left);
+    left: -2px;
+  }
+}
+
+.evilTheme {
+  border: solid 3px $colorEvilTheme;
+  @include transition(border);
+
+  [role="img-wrapper"] {
+    @include transition(left);
+    left: 72px;
+  }
+}

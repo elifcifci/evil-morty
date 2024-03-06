@@ -4,5 +4,5 @@ export interface IIconProps {
     primary?: boolean;
     secondary?: boolean;
     tertiary?: boolean;
-    evilThema?: boolean;
+    evilTheme?: boolean;
   }

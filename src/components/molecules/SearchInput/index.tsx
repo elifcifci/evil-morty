@@ -5,17 +5,15 @@ import { ISeachInputProps } from "../../../interfaces/SearchProps";
 import styles from "./searchInput.module.scss";
 
 const SeachInput = ({
+  isEvilMode,
   inputValue,
   setInputValue,
   selectedItems,
   setSelectedItems,
 }: ISeachInputProps) => {
   const inputRef = React.useRef<HTMLInputElement>(null);
-  const [showPlaceholder, setShowPlaceHolder] = React.useState(true);
 
   const handleClick = () => {
-    setShowPlaceHolder(false);
-    
     if (inputRef.current !== null) {
       inputRef.current.focus();
     }
@@ -26,13 +24,15 @@ const SeachInput = ({
   };
 
   return (
-    <div className={styles.seachInputWrapper} onClick={handleClick}>
-      {(selectedItems.length === 0 && showPlaceholder) && (
-        <p className={styles.placecHolder}>Find me!</p>
-      )}
-
+    <div
+      className={`${styles.seachInputWrapper} ${
+        isEvilMode ? styles.evilTheme : ""
+      }`}
+      onClick={handleClick}
+    >
       <ul className={styles.list}>
         <SelectedList
+          isEvilMode={isEvilMode}
           selectedItems={selectedItems}
           setSelectedItems={setSelectedItems}
         />
@@ -52,7 +52,7 @@ const SeachInput = ({
         </li>
       </ul>
 
-      <CaretDown className={styles.caretDown} iconSize="m" secondary />
+      <CaretDown className={styles.caretDown} iconSize="m" />
     </div>
   );
 };
