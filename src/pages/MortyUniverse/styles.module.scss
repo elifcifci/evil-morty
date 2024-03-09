@@ -1,0 +1,14 @@
+.mortyUniverseWrapper {
+  height: 70vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.portal {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  display: none;
+}

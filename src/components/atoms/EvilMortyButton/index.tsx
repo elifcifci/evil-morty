@@ -5,14 +5,17 @@ import styles from "./styles.module.scss";
 const EvilMortyThema = ({
   isEvilMode,
   setIsEvilMode,
+  setNotFountText
 }: IEvilMortyThemaProps) => {
 
   const handleClick = () => {
+    setNotFountText(undefined)
     setIsEvilMode((prew: boolean) => !prew);
   };
 
   const handlKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
     if (e.code === "Enter") {
+      setNotFountText(undefined)
       setIsEvilMode((prew: boolean) => !prew);
     }
   };

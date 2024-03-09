@@ -1,6 +1,7 @@
 @import "../../../styles/mixins";
 @import "../../../styles/animations";
 @import "../../../styles/variables";
+@import "../../../styles/breakPoints";
 
 .listWrapper {
   height: 50vh;
@@ -8,6 +9,13 @@
   background-color: $colorBlack;
   border-radius: 10px;
   @include transition(border);
+}
+
+.loadingWrapper {
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .searchItems {
@@ -29,4 +37,15 @@
   color: white;
   padding: 8px 12px;
   text-align: center;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+@media screen and (min-width: $xl) {
+  .quote {
+    font-size: 20px;
+  }
 }
