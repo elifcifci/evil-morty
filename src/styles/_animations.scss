@@ -1,12 +1,32 @@
 // shakeAnimation starts here
-@mixin shakeAnimation {
+@mixin shakeAnimation($direction: toRight, $iterationCount: 3) {
   position: relative;
-  animation-name: shake;
   animation-duration: 0.3s;
-  animation-iteration-count: 3;
+  animation-iteration-count: $iterationCount;
+
+  @if ($direction == left) {
+    animation-name: toLeft;
+  } @else {
+    animation-name: toRight;
+  }
 }
 
-@keyframes shake {
+@keyframes toLeft {
+  0% {
+    right: initial;
+  }
+  25% {
+    left: 3px;
+  }
+  50% {
+    left: 3px;
+  }
+  100% {
+    right: initial;
+  }
+}
+
+@keyframes toRight {
   0% {
     left: initial;
   }

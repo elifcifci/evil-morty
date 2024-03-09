@@ -1,0 +1,16 @@
+.keyboardWrapper {
+  display: flex;
+  column-gap: 20px;
+
+  section {
+    display: flex;
+    position: relative;
+    gap: 5px;
+
+    div:nth-child(2) {
+      position: absolute;
+      bottom: 55px;
+      left: 55px;
+    }
+  }
+}

@@ -31,7 +31,7 @@ const MortyUniverse = () => {
   }, []);
 
   return (
-    <div className={styles.mortyUniverseWrapper}>
+    <div className={`pageWrapper ${styles.mortyUniverseWrapper}`}>
       {isEvilMode && (
         <audio
           loop
