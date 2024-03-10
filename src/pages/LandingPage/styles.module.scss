@@ -9,21 +9,29 @@
   height: calc(100vh - 40px);
 
   ul {
-    @include customGrid($gridForL: 2, $gridForXl: 3);
-    max-width: 750px;
+    @include customGrid($gridForXl: 3);
+    max-width: 1000px;
     margin: 0 auto;
   }
 }
 
-.pageTitleAndSpaceship {
+.pageTitleAndDescription {
   color: $colorMortyYellow;
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-
+  max-width: 700px;
   h1 {
     font-family: "Orbitron", sans-serif;
     font-size: 50px;
+    background-color: black;
+  }
+
+  p {
+    font-family: "Orbitron", sans-serif;
+    margin: 0;
+    font-size: 24px;
     background-color: black;
   }
 }
@@ -31,12 +39,16 @@
 .keyboard {
   position: absolute;
   bottom: 20px;
-  right:  20px;
+  right: 20px;
 }
 
-.spaceShip {
-  @include shakeAnimation(left, 4);
+.spaceShipWrapper {
+  @include shakeAnimation(left, infinite);
   position: absolute;
+  z-index: 4;
   bottom: 20px;
   left: 20px;
+  width: max-content;
+  height: max-content;
+  transition: all 1s;
 }

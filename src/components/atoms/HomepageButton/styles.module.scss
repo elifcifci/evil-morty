@@ -1,0 +1,44 @@
+@import "../../../styles/variables";
+@import "../../../styles/breakPoints";
+@import "../../../styles/animations";
+
+.homePageButton {
+  display: none;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
+
+@media screen and (min-width: $xl) {
+  .homePageButton {
+    display: flex;
+    width: 220px;
+    height: 220px;
+    background-color: transparent;
+    border: none;
+    border-radius: 100px;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+
+    p {
+      margin: auto 0 0 0;
+      font-size: 20px;
+      font-family: "Orbitron", sans-serif;
+      font-weight: 900;
+      color: $colorMortyYellow;
+      @include transition(color);
+    }
+  }
+
+  .evilTheme {
+    p {
+      color: $colorEvilThemeSecondary;
+      @include transition(color);
+    }
+
+    img {
+      filter: sepia(100%);
+    }
+  }
+}
