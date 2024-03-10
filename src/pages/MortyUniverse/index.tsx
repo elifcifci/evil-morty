@@ -4,8 +4,8 @@ import Notification from "../../components/molecules/Notification";
 import EvilMortyThema from "../../components/atoms/EvilMortyButton";
 import Seach from "../../components/organisms/Search";
 import { getCharacters } from "../../api/ricks-api";
-import styles from "./styles.module.scss";
 import { IErrorStateProps } from "../../interfaces/erorInterfaces";
+import styles from "./styles.module.scss";
 
 const MortyUniverse = () => {
   const [isOpenedNotification, setIsOpenedNotification] = React.useState(false);
