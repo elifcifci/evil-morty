@@ -1,5 +1,6 @@
 @import "../../../styles/breakPoints";
 @import "../../../styles/variables";
+@import "../../../styles/animations";
 
 .searchItem {
   color: white;
@@ -14,10 +15,8 @@
     border: none;
     box-shadow: none;
     accent-color: $colorPrimary;
-  }
-
-  &:not(:last-child) {
-    border-bottom: 1px solid $colorSecondary;
+    width: 18px;
+    @include transition(accent-color);
   }
 
   [role="image-wrapper"] {
@@ -29,6 +28,13 @@
       width: 100%;
       height: 100%;
     }
+  }
+}
+
+.evilTheme {
+  input {
+    accent-color: $colorEvilThemeSecondary;
+    @include transition(accent-color);
   }
 }
 

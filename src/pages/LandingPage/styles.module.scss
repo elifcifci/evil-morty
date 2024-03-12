@@ -1,11 +1,42 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+@import "../../styles/animations";
+
 .mainPageContainer {
-  height: 70vh;
+  display: flex;
+  flex-direction: column;
   position: relative;
-  padding: 180px 10px 0 10px;
+  height: calc(100vh - 40px);
+
+  ul {
+    @include customGrid($gridForL: 2, $gridForXl: 3);
+    max-width: 750px;
+    margin: 0 auto;
+  }
 }
 
-.portal {
+.pageTitleAndSpaceship {
+  color: $colorMortyYellow;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  h1 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 50px;
+    background-color: black;
+  }
+}
+
+.keyboard {
   position: absolute;
-  right: 20px;
-  top: 20px;
+  bottom: 20px;
+  right:  20px;
+}
+
+.spaceShip {
+  @include shakeAnimation(left, 4);
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
 }

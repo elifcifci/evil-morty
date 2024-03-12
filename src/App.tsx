@@ -1,21 +1,21 @@
-import React from "react";
-import "./App.css";
-import LandingPage from "./pages/LandingPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
+import MortyUniverse from "./pages/MortyUniverse";
+import PokemonUniverse from "./pages/PokemonUniverse";
 
 function App() {
-  const  [isOpenedNotification, setIsOpenedNotification] = React.useState(false);
-  
   return (
-    <>
+    <div>
       <BrowserRouter>
         <Routes>
           <>
-            <Route path="/" element={<LandingPage isOpenedNotification={isOpenedNotification} setIsOpenedNotification={setIsOpenedNotification} />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/evil-morty" element={<MortyUniverse />} />
+            <Route path="/pokemon-universe" element={<PokemonUniverse />} />
           </>
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 

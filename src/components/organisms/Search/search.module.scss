@@ -1,16 +1,16 @@
 @import "../../../styles/breakPoints";
 @import "../../../styles/variables";
+@import "../../../styles/animations";
 
 .seachWrapper {
-  margin: auto;
   display: flex;
   flex-direction: column;
   row-gap: 14px;
   max-width: 750px;
-  
+
   /* width */
   ::-webkit-scrollbar {
-    width: 12px;
+    width: 8px;
   }
 
   /* Track */
@@ -20,14 +20,39 @@
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background-color: $colorSecondary;
+    background-color: $colorMortyYellow;
     border-radius: 7px;
-    transition: 5ms all ease;
+    transition: background-color 5s ease-in;
+  }
+
+  .pageTitle {
+    color: $colorMortyYellow;
+    width: max-content;
+    font-weight: bolder;
+    background-color: black;
+    @include transition(color);
+    margin-bottom: 6px;
+    width: 100%;
+  }
+}
+
+.evilTheme {
+  ::-webkit-scrollbar-thumb {
+    background-color: $colorEvilTheme;
+    // @include transition(background-color);
+    transition: background-color 2s ease-in;
+  }
+
+  .pageTitle {
+    color: $colorEvilTheme;
+    width: max-content;
+    font-weight: bolder;
   }
 }
 
 @media screen and (min-width: $sm) {
   .seachWrapper {
     width: 100%;
+    margin: auto;
   }
 }

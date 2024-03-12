@@ -5,25 +5,53 @@ import List from "../List/index";
 import { ISearchProps } from "../../../interfaces/SearchProps";
 import styles from "./search.module.scss";
 
-const Seach = ({ isEvilMode, error, apiData }: ISearchProps) => {
+const Seach = ({
+  isEvilMode,
+  error,
+  apiData,
+  notFountText,
+  setNotFountText,
+}: ISearchProps) => {
   const [inputValue, setInputValue] = React.useState("");
   const [selectedItems, setSelectedItems] = React.useState<
     { id: string; name: string }[]
   >([]);
 
+  React.useEffect(() => {
+    if (inputValue.length === 0) {
+      setNotFountText(undefined);
+    }
+  }, [inputValue]);
+
   return (
-    <div className={styles.seachWrapper}>
+    <div
+      className={`${styles.seachWrapper} ${isEvilMode ? styles.evilTheme : ""}`}
+    >
       {error.message ? (
         <ErrorText error={error} />
       ) : (
         <>
-          <SeachInput
-            inputValue={inputValue}
-            setInputValue={setInputValue}
-            selectedItems={selectedItems}
-            setSelectedItems={setSelectedItems}
-          />
+          <div>
+            <h1
+              className={`${styles.pageTitle} ${isEvilMode ? "evilTheme" : ""}`}
+            >
+              {isEvilMode
+                ? "The choice is yours... for now."
+                : "Pick one, Morty. But don't screw it up."}
+            </h1>
+
+            <SeachInput
+              isEvilMode={isEvilMode}
+              inputValue={inputValue}
+              setInputValue={setInputValue}
+              selectedItems={selectedItems}
+              setSelectedItems={setSelectedItems}
+            />
+          </div>
+
           <List
+            notFountText={notFountText}
+            setNotFountText={setNotFountText}
             apiData={apiData}
             inputValue={inputValue}
             isEvilMode={isEvilMode}

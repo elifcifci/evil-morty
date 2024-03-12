@@ -1,7 +1,23 @@
-
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
   background-image: url(/public/images/stars.jpg);
+}
+
+.pageWrapper {
+  padding: 20px 10px;
+  gap: 20px;
+}
+
+.anchorParent {
+  position: relative;
+  z-index: 3;
+  cursor: pointer;
+  
+  a:first-of-type {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
 }
