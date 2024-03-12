@@ -4,10 +4,11 @@
 
   section {
     display: flex;
+    align-items: flex-end;
     position: relative;
     gap: 5px;
 
-    div:nth-child(2) {
+    [role="arrows-up"],  [role="letters-w"]  {
       position: absolute;
       bottom: 55px;
       left: 55px;

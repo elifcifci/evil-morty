@@ -16,11 +16,15 @@
   }
 
   [role="universe-coming-soon"] {
-    font-size: 30px;
-    font-weight: bolder;
+    font-size: 20px;
+    top: 70%;
     text-align: center;
-    width: 200px;
     font-family: "Orbitron", sans-serif;
+    font-weight: 900;
     margin: 0;
   }
+}
+
+.disableUniverse {
+  cursor:auto;
 }

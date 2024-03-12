@@ -20,11 +20,11 @@ const ListItemInfo = ({
       </div>
       <div className={styles.infoWrapper}>
         <div>
-          <label htmlFor={id} role="character-name">
+          <p role="character-name">
             <span>{name.slice(0, firstIndexOfSerched)}</span>
             <span>{name.slice(firstIndexOfSerched, lastIndexOfSerched)}</span>
             <span>{name.slice(lastIndexOfSerched, name.length)}</span>
-          </label>
+          </p>
         </div>
         <p>{episodes} Episodes</p>
       </div>
