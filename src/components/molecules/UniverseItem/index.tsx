@@ -3,6 +3,7 @@ import Portal from "../../atoms/Portal";
 import styles from "./styles.module.scss";
 
 const UniverseItem = ({ img, link }: IUniverseItemProps) => {
+
   return (
     <li className={`anchorParent ${styles.itemWrapper} ${link ? "" : styles.disableUniverse}`}>
       {link ? (

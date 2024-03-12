@@ -22,6 +22,7 @@
   align-items: flex-start;
   justify-content: space-between;
   max-width: 700px;
+
   h1 {
     font-family: "Orbitron", sans-serif;
     font-size: 50px;
@@ -37,18 +38,30 @@
 }
 
 .keyboard {
+  display: none;
   position: absolute;
   bottom: 20px;
   right: 20px;
 }
 
 .spaceShipWrapper {
-  @include shakeAnimation(left, infinite);
+  display: none;
   position: absolute;
   z-index: 4;
-  bottom: 20px;
-  left: 20px;
   width: max-content;
   height: max-content;
   transition: all 1s;
+}
+
+.shakingSpaceship {
+  img {
+    @include shakeAnimation(left, infinite);
+  }
+}
+
+@media screen and (min-width: $xl) {
+  .keyboard,
+  .spaceShipWrapper {
+    display: flex;
+  }
 }
