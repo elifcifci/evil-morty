@@ -14,13 +14,17 @@ const LandingPage = ({}) => {
     height: spaceShipRef.current?.scrollHeight,
     speed: 5,
     movementBoundary: {
-      x: width - (spaceShipRef.current?.scrollHeight ?? 0) - 250,
-      y: height - (spaceShipRef.current?.scrollHeight ?? 0) - 100,
+      // -20 is for page padding
+      x: width - (spaceShipRef.current?.scrollWidth ?? 220) - 20,
+      y: height - (spaceShipRef.current?.scrollWidth ?? 110) - 20,
     },
-    initialPosition: 20
+    initialPosition: 20,
   };
 
-  const [itemPosition, setItemPosition] = React.useState({ x: spaceShip.initialPosition, y: spaceShip.initialPosition });
+  const [itemPosition, setItemPosition] = React.useState({
+    x: spaceShip.initialPosition,
+    y: spaceShip.initialPosition,
+  });
   const [isShaking, setIsShaking] = React.useState(true);
 
   const chooseValue = (position: number, boundary: number, speed: number) => {
@@ -46,51 +50,53 @@ const LandingPage = ({}) => {
     const keydownListener = () =>
       document.addEventListener("keydown", (e: any) => {
         const key = e.key.toLocaleLowerCase();
-        if (key === "w" || key === "arrowup") {
-          setItemPosition((prev) => {
-            return {
-              ...prev,
-              y: chooseValue(
-                prev.y,
-                spaceShip.movementBoundary.y,
-                spaceShip.speed
-              ),
-            };
-          });
-        } else if (key === "s" || key === "arrowdown") {
-          setItemPosition((prev) => {
-            return {
-              ...prev,
-              y: chooseValue(
-                prev.y,
-                spaceShip.movementBoundary.y,
-                -spaceShip.speed
-              ),
-            };
-          });
-        } else if (key === "d" || key === "arrowright") {
-          setItemPosition((prev) => {
-            return {
-              ...prev,
-              x: chooseValue(
-                prev.x,
-                spaceShip.movementBoundary.x,
-                spaceShip.speed
-              ),
-            };
-          });
-        } else if (key === "a" || key === "arrowleft") {
-          setItemPosition((prev) => {
-            return {
-              ...prev,
-              x: chooseValue(
-                prev.x,
-                spaceShip.movementBoundary.x,
-                -spaceShip.speed
-              ),
-            };
-          });
-        }
+        // setTimeout(() => {
+          if (key === "w" || key === "arrowup") {
+            setItemPosition((prev) => {
+              return {
+                ...prev,
+                y: chooseValue(
+                  prev.y,
+                  spaceShip.movementBoundary.y,
+                  spaceShip.speed
+                ),
+              };
+            });
+          } else if (key === "s" || key === "arrowdown") {
+            setItemPosition((prev) => {
+              return {
+                ...prev,
+                y: chooseValue(
+                  prev.y,
+                  spaceShip.movementBoundary.y,
+                  -spaceShip.speed
+                ),
+              };
+            });
+          } else if (key === "d" || key === "arrowright") {
+            setItemPosition((prev) => {
+              return {
+                ...prev,
+                x: chooseValue(
+                  prev.x,
+                  spaceShip.movementBoundary.x,
+                  spaceShip.speed
+                ),
+              };
+            });
+          } else if (key === "a" || key === "arrowleft") {
+            setItemPosition((prev) => {
+              return {
+                ...prev,
+                x: chooseValue(
+                  prev.x,
+                  spaceShip.movementBoundary.x,
+                  -spaceShip.speed
+                ),
+              };
+            });
+          }
+        // }, 300);
       });
 
     keydownListener();

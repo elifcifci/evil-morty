@@ -55,7 +55,7 @@
 
 .shakingSpaceship {
   img {
-    @include shakeAnimation(left, infinite);
+    @include shakeAnimation(left, 3);
   }
 }
 

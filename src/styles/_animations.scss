@@ -3,43 +3,11 @@
   position: relative;
   animation-duration: 0.3s;
   animation-iteration-count: $iterationCount;
-
+  animation-delay: 1s;
   @if ($direction == left) {
     animation-name: toLeft;
   } @else {
     animation-name: toRight;
-  }
-
-  @if ($iterationCount == infinite) {
-    animation-name: infiniteShake;
-    animation-duration: 1s;
-  }
-}
-
-@keyframes infiniteShake {
-  0% {
-    left: 17px;
-  }
-  10% {
-    left: 20px;
-  }
-  20% {
-    left: 23px;
-  }
-  50% {
-    left: 20px;
-  }
-  70% {
-    left: 20px;
-  }
-  80% {
-    left: 17px;
-  }
-  90% {
-    left: 23px;
-  }
-  100% {
-    left: 20px;
   }
 }
 
