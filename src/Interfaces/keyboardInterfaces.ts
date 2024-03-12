@@ -5,11 +5,12 @@ export type KeyboardTypes = "arrows" | "letters";
 export interface IKeyListProps {
   arrows: ArrowDirection[];
   letters: LetterDirection[];
+  enter: string;
 }
 
 export interface IKeyItemProps {
   keyboardType: string;
-  direction: ArrowDirection | LetterDirection;
+  direction?: ArrowDirection | LetterDirection;
 }
 
 export interface IItemList {
@@ -25,6 +26,7 @@ export interface IItemList {
     w: JSX.Element;
     s: JSX.Element;
   };
+  enter: JSX.Element;
 }
 
 export interface IKeyboardProps {

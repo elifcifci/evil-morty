@@ -1,0 +1,43 @@
+@import "../../../styles//variables";
+
+.enterWrapper {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+
+  span {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 22px;
+    font-family: "Orbitron", sans-serif;
+    font-weight: 900;
+  }
+
+  .topSquare {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: $colorSecondary;
+  }
+
+  .bottomRectangle {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 50px;
+    height: 100px;
+    background-color: $colorSecondary;
+  }
+}
+
+.ArrowTurnDownLeft {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 30px;
+  height: 30px;
+}

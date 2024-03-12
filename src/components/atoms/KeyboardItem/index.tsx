@@ -9,9 +9,20 @@ const KeyItem = ({ keyboardType, direction }: IKeyItemProps) => {
     item = itemList.arrows[direction as keyof typeof itemList.arrows];
   } else if (keyboardType === "letters") {
     item = itemList.letters[direction as keyof typeof itemList.letters];
+  } else {
+    item = itemList.enter;
   }
 
-  return <div className={styles.keyItemWrapper}>{item}</div>;
+  return keyboardType === "enter" ? (
+    <> {item}</>
+  ) : (
+    <div
+      role={`${keyboardType}-${direction ?? ""}`}
+      className={styles.keyItemWrapper}
+    >
+      {item}
+    </div>
+  );
 };
 
 export default KeyItem;

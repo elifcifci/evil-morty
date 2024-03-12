@@ -1,22 +1,25 @@
 import React from "react";
-import Portal from "../../components/atoms/Portal";
-import Notification from "../../components/molecules/Notification";
+import { useNavigate } from "react-router-dom";
+import HomepageButton from "../../components/atoms/HomepageButton";
 import EvilMortyThema from "../../components/atoms/EvilMortyButton";
+import Notification from "../../components/molecules/Notification";
 import Seach from "../../components/organisms/Search";
 import { getCharacters } from "../../api/ricks-api";
-import styles from "./styles.module.scss";
 import { IErrorStateProps } from "../../interfaces/erorInterfaces";
+import styles from "./styles.module.scss";
 
 const MortyUniverse = () => {
   const [isOpenedNotification, setIsOpenedNotification] = React.useState(false);
   const [isEvilMode, setIsEvilMode] = React.useState(false);
-  const [notFountText, setNotFountText] = React.useState<string | undefined>(undefined);
+  const [notFountText, setNotFountText] = React.useState<string | undefined>(
+    undefined
+  );
   const [apiData, setApiData] = React.useState();
   const [error, setError] = React.useState<IErrorStateProps>({
     message: undefined,
     status: undefined,
   });
-  const audioRef = React.useRef<HTMLAudioElement>(null);
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     getCharacters()
@@ -30,19 +33,26 @@ const MortyUniverse = () => {
       });
   }, []);
 
+  const redirectPage = (targetPath: string) => {
+    navigate(targetPath);
+  };
+
   return (
     <div className={`pageWrapper ${styles.mortyUniverseWrapper}`}>
       {isEvilMode && (
         <audio
           loop
           autoPlay
-          ref={audioRef}
           className="evil-audio"
           src="../../../public/song/evil-song.mp3"
         />
       )}
 
-      <EvilMortyThema isEvilMode={isEvilMode} setIsEvilMode={setIsEvilMode} setNotFountText={setNotFountText}/>
+      <EvilMortyThema
+        isEvilMode={isEvilMode}
+        setIsEvilMode={setIsEvilMode}
+        setNotFountText={setNotFountText}
+      />
 
       {isOpenedNotification && (
         <Notification
@@ -52,8 +62,15 @@ const MortyUniverse = () => {
           setIsOpenedNotification={setIsOpenedNotification}
         />
       )}
-      <Portal className={styles.portal} imageSize="s" />
-      <Seach notFountText={notFountText} setNotFountText={setNotFountText} isEvilMode={isEvilMode} error={error} apiData={apiData} />
+
+      <Seach
+        notFountText={notFountText}
+        setNotFountText={setNotFountText}
+        isEvilMode={isEvilMode}
+        error={error}
+        apiData={apiData}
+      />
+      <HomepageButton isEvilMode={isEvilMode} redirectPage={redirectPage} />
     </div>
   );
 };

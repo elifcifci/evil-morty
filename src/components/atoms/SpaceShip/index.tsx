@@ -1,10 +1,22 @@
-import {IPortalProps} from "../../../interfaces/SearchProps"
-import styles from "./styles.module.scss"
+import { ISpaceShipProps } from "../../../interfaces/SearchProps";
+import styles from "./styles.module.scss";
 
-
-const SpaceShip = ({className, imageSize}: IPortalProps) => {
+const SpaceShip = ({
+  className,
+  imageSize,
+  style,
+  spaceShipRef,
+}: ISpaceShipProps) => {
   return (
-    <div className={`${styles.spaceshipWrapper} ${className} ${imageSize ? styles[`${imageSize}SizeImage`] : ""}`}>
+    <div
+      style={{ ...style }}
+      ref={spaceShipRef}
+      tabIndex={0}
+      draggable
+      className={`${styles.spaceshipWrapper} ${className} ${
+        imageSize ? styles[`${imageSize}SizeImage`] : ""
+      }`}
+    >
       <img src="/images/spaceship.png" alt="Portal" />
     </div>
   );

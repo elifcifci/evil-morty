@@ -68,6 +68,13 @@ export interface IPortalProps {
   imageSize: "s" | "m" | "l";
 }
 
+export interface ISpaceShipProps {
+  className?: string;
+  imageSize: "s" | "m" | "l";
+  style: { left: number; bottom: number };
+  spaceShipRef: React.RefObject<HTMLDivElement>;
+}
+
 export interface ISearchProps {
   isEvilMode: boolean;
   error: IErrorStateProps;
