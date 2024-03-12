@@ -1,4 +1,4 @@
-import { IPortalProps } from "../../../interfaces/SearchProps";
+import { ISpaceShipProps } from "../../../interfaces/SearchProps";
 import styles from "./styles.module.scss";
 
 const SpaceShip = ({
@@ -6,7 +6,7 @@ const SpaceShip = ({
   imageSize,
   style,
   spaceShipRef,
-}: IPortalProps) => {
+}: ISpaceShipProps) => {
   return (
     <div
       style={{ ...style }}
