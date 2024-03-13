@@ -1,8 +1,8 @@
-import { IUniverseListProps } from "../interfaces/universeInterfaces";
+import { IUniverseItem } from "../interfaces/universeInterfaces";
 
-export const universeList: IUniverseListProps[] = [
+export const universeList: IUniverseItem[] = [
   {
-    name: "rick-and-morty",
+    id: "universe-rick-and-morty",
     img: {
       src: "/public/images/rick-and-morty-universe.png",
       alt: "Rick And Morty Universe",
@@ -10,7 +10,7 @@ export const universeList: IUniverseListProps[] = [
     link: "/evil-morty",
   },
   {
-    name: "pokemon",
+    id: "universe-pokemon",
     img: {
       src: "/public/images/pokemon-universe.png",
       alt: "Pokemon Universe",
@@ -18,7 +18,7 @@ export const universeList: IUniverseListProps[] = [
     link: "",
   },
   {
-    name: "sailor-moon",
+    id: "universe-sailor-moon",
     img: {
       src: "/public/images/sailor-moon-universe.png",
       alt: "Sailor Moon Universe",
