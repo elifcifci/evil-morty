@@ -1,14 +1,19 @@
 import { universeList } from "../../../constants/universeList";
-import { IUniverseListProps } from "../../../interfaces/universeInterfaces";
+import {
+  IUniverseItem,
+  IUniverseListProps,
+} from "../../../interfaces/universeInterfaces";
 import UniverseItem from "../UniverseItem";
 
-const UniverseList = () => {
+const UniverseList = ({ isReachedUniverse }: IUniverseListProps) => {
   return (
     <ul>
-      {universeList.map((item: IUniverseListProps) => {
+      {universeList.map((item: IUniverseItem) => {
         return (
           <UniverseItem
-            key={`UniverseItem-${item.name}`}
+            isReachedUniverse={isReachedUniverse}
+            id={item.id}
+            key={item.id}
             img={item.img}
             link={item.link}
           />
