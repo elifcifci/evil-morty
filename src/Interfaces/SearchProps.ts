@@ -1,6 +1,6 @@
 import React from "react";
 import { IAllCharacterProp } from "./apiInterfaces";
-import { IErrorStateProps } from "./erorInterfaces";
+import { IErrorStatus } from "./erorInterfaces";
 
 export interface ISelectedListProps {
   isEvilMode: boolean;
@@ -34,6 +34,10 @@ export interface ISeachListItemProps {
 }
 
 export interface ISeachInputProps {
+  hasError: boolean;
+  setErrorStatus: React.Dispatch<
+    React.SetStateAction<undefined | number | boolean>
+  >;
   isEvilMode: boolean;
   inputValue: string;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
@@ -44,6 +48,8 @@ export interface ISeachInputProps {
 }
 
 export interface IListProps {
+  isLoading: boolean;
+  errorStatus: undefined | boolean | number;
   apiData: undefined | IAllCharacterProp[];
   inputValue: string;
   isEvilMode: boolean;
@@ -51,12 +57,10 @@ export interface IListProps {
   setSelectedItems: React.Dispatch<
     React.SetStateAction<{ id: string; name: string }[]>
   >;
-  notFountText: string | undefined;
-  setNotFountText: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
 
 export interface IListItemInfoProps {
-  id: string;
+  isEvilMode: boolean;
   name: string;
   inputValue: string;
   episodes: number;
@@ -76,15 +80,20 @@ export interface ISpaceShipProps {
 }
 
 export interface ISearchProps {
+  isLoading: boolean;
+  inputValue: string;
+  setInputValue: React.Dispatch<React.SetStateAction<string>>;
   isEvilMode: boolean;
-  error: IErrorStateProps;
+  errorStatus: IErrorStatus;
+  setErrorStatus: React.Dispatch<
+    React.SetStateAction<undefined | number | boolean>
+  >;
   apiData: undefined | IAllCharacterProp[];
-  notFountText: string | undefined;
-  setNotFountText: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
 
-export interface IEvilMortyThemaProps {
+export interface IThemeButtonProps {
+  hasError: boolean;
   isEvilMode: boolean;
   setIsEvilMode: React.Dispatch<React.SetStateAction<boolean>>;
-  setNotFountText: React.Dispatch<React.SetStateAction<string | undefined>>;
+  setInputValue: React.Dispatch<React.SetStateAction<string>>;
 }

@@ -10,10 +10,14 @@
   }
 
   [role="character-name"] {
-    span:nth-child(2) {
+    .selectedWord {
       font-weight: bolder;
       color: $colorSecondary;
     }
+
+    .selectedEvilWord {
+      font-weight: bolder;
+      color: $colorEvilTheme;
+    }
   }
 }
-

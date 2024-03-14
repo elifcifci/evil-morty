@@ -5,6 +5,8 @@ import { ISeachInputProps } from "../../../interfaces/SearchProps";
 import styles from "./searchInput.module.scss";
 
 const SeachInput = ({
+  hasError,
+  setErrorStatus,
   isEvilMode,
   inputValue,
   setInputValue,
@@ -20,14 +22,15 @@ const SeachInput = ({
   };
 
   const handleChange = (e: any) => {
-    setInputValue(e.target.value);
+    setInputValue(e.target.value.toString());
+    setErrorStatus(undefined);
   };
 
   return (
     <div
-      className={`${styles.seachInputWrapper} ${
-        isEvilMode ? styles.evilTheme : ""
-      }`}
+      className={`${styles.seachInputWrapper}
+       ${hasError ? styles.errorTheme : ""}
+       ${isEvilMode ? styles.evilTheme : ""}`}
       onClick={handleClick}
     >
       <ul className={styles.list}>
@@ -37,11 +40,11 @@ const SeachInput = ({
           setSelectedItems={setSelectedItems}
         />
         <li
-          style={{
-            width: `${
-              inputValue.length > 0 ? inputValue.length * 8 + 15 : 0
-            }px`,
-          }}
+        // style={{
+        //   width: `${
+        //     inputValue.length > 0 ? inputValue.length * 8 + 15 : 0
+        //   }px`,
+        // }}
         >
           <input
             ref={inputRef}

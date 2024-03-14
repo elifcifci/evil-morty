@@ -49,7 +49,7 @@ const ListItem = ({
       />
 
       <ListItemInfo
-        id={id}
+        isEvilMode={isEvilMode}
         name={name}
         inputValue={inputValue}
         episodes={episodes}

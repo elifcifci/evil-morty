@@ -4,9 +4,7 @@
 
 .homePageButton {
   display: none;
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
+  margin: 0 auto 0 0;
 }
 
 @media screen and (min-width: $xl) {
@@ -30,6 +28,14 @@
       @include transition(color);
     }
   }
+
+  .errorTheme {
+    p {
+      color: $colorRickBlue;
+      @include transition(color);
+    }
+  }
+
 
   .evilTheme {
     p {

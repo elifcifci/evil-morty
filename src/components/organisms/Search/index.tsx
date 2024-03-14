@@ -1,65 +1,56 @@
 import React from "react";
 import SeachInput from "../../molecules/SearchInput/index";
-import ErrorText from "../../molecules/ErrorText";
 import List from "../List/index";
 import { ISearchProps } from "../../../interfaces/SearchProps";
 import styles from "./search.module.scss";
 
 const Seach = ({
+  isLoading,
+  inputValue,
+  setInputValue,
   isEvilMode,
-  error,
   apiData,
-  notFountText,
-  setNotFountText,
+  errorStatus,
+  setErrorStatus,
 }: ISearchProps) => {
-  const [inputValue, setInputValue] = React.useState("");
   const [selectedItems, setSelectedItems] = React.useState<
     { id: string; name: string }[]
   >([]);
 
-  React.useEffect(() => {
-    if (inputValue.length === 0) {
-      setNotFountText(undefined);
-    }
-  }, [inputValue]);
-
   return (
     <div
-      className={`${styles.seachWrapper} ${isEvilMode ? styles.evilTheme : ""}`}
+      className={`${styles.seachWrapper}  ${
+        !!errorStatus ? styles.errorTheme : ""
+      } ${isEvilMode ? styles.evilTheme : ""} `}
     >
-      {error.message ? (
-        <ErrorText error={error} />
-      ) : (
-        <>
-          <div>
-            <h1
-              className={`${styles.pageTitle} ${isEvilMode ? "evilTheme" : ""}`}
-            >
-              {isEvilMode
-                ? "The choice is yours... for now."
-                : "Pick one, Morty. But don't screw it up."}
-            </h1>
+      <div>
+        <h1 className={`${styles.pageTitle} ${isEvilMode ? "evilTheme" : ""}`}>
+          {isEvilMode
+            ? "The choice is yours... for now."
+            : errorStatus
+            ? "Pick new one, Morty. But don't screw it up."
+            : "Uh, I-I don't know... W-which one is the best?"}
+        </h1>
 
-            <SeachInput
-              isEvilMode={isEvilMode}
-              inputValue={inputValue}
-              setInputValue={setInputValue}
-              selectedItems={selectedItems}
-              setSelectedItems={setSelectedItems}
-            />
-          </div>
-
-          <List
-            notFountText={notFountText}
-            setNotFountText={setNotFountText}
-            apiData={apiData}
-            inputValue={inputValue}
-            isEvilMode={isEvilMode}
-            selectedItems={selectedItems}
-            setSelectedItems={setSelectedItems}
-          />
-        </>
-      )}
+        <SeachInput
+          hasError={!!errorStatus}
+          setErrorStatus={setErrorStatus}
+          isEvilMode={isEvilMode}
+          inputValue={inputValue}
+          setInputValue={setInputValue}
+          selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}
+        />
+      </div>
+      <List
+        isLoading={isLoading}
+        errorStatus={errorStatus}
+        apiData={apiData}
+        inputValue={inputValue}
+        isEvilMode={isEvilMode}
+        selectedItems={selectedItems}
+        setSelectedItems={setSelectedItems}
+      />
     </div>
   );
 };

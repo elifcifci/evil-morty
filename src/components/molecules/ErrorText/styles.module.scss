@@ -1,16 +1,17 @@
 @import "../../../styles/variables";
 @import "../../../styles/breakPoints";
+
 .errorWrapper {
   display: flex;
-  border: 3px solid $colorRickBlue;
+  align-items: flex-end;
   background-color: $colorBlack;
-  padding: 0px 6px 0px 12px;
-  max-height: 50vh;
+  padding: 0;
+  height: 100%;
   border-radius: 10px;
 
   [role="img-wrapper"] {
-    width: 150px;
-    height: 292px;
+    width: 200px;
+    height: 298px;
     flex-shrink: 0;
 
     img {
@@ -30,8 +31,6 @@
 
 @media screen and (min-widt: $xl) {
   .errorWrapper {
-    padding: 0px 12px 0px 24px;
-
     [role="img-wrapper"] {
       width: 250px;
       height: 377px;
