@@ -1,6 +1,4 @@
-export interface IUniverseListProps {
-  isReachedUniverse: boolean;
-}
+import React from "react";
 
 export interface IUniverseItem {
   id: string;
@@ -9,22 +7,30 @@ export interface IUniverseItem {
 }
 
 export interface IUniverseItemProps {
+  setUniversePosition: React.Dispatch<
+    React.SetStateAction<IUniversePosition[]>
+  >;
   id: string;
   img: { src: string; alt: string };
   link: string;
-  isReachedUniverse: boolean;
+  isHoverOnUniverse: boolean;
 }
 
-export interface IUniverseProps {
-  left: number;
-  right: number;
-  top: number;
-  bottom: number;
-  height: number;
-  width: number;
-  x: number;
-  y: number;
-  link: string;
+export interface IUniversePosition {
+  id: string | undefined;
+  left: number| undefined;
+  right: number| undefined;
+  top: number| undefined;
+  bottom: number| undefined;
+  link: string| undefined;
+}
+
+
+export interface IUniverseListProps {
+  setUniversePosition: React.Dispatch<
+    React.SetStateAction<IUniversePosition[]>
+  >;
+  isHoverOnUniverse: boolean;
 }
 
 export interface ISpaceShipInfo {

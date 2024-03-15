@@ -5,13 +5,17 @@ import {
 } from "../../../interfaces/universeInterfaces";
 import UniverseItem from "../UniverseItem";
 
-const UniverseList = ({ isReachedUniverse }: IUniverseListProps) => {
+const UniverseList = ({
+  isHoverOnUniverse,
+  setUniversePosition,
+}: IUniverseListProps) => {
   return (
     <ul>
       {universeList.map((item: IUniverseItem) => {
         return (
           <UniverseItem
-            isReachedUniverse={isReachedUniverse}
+            isHoverOnUniverse={isHoverOnUniverse}
+            setUniversePosition={setUniversePosition}
             id={item.id}
             key={item.id}
             img={item.img}

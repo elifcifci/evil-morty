@@ -1,18 +1,18 @@
 import {
   ISpaceShipInfo,
-  IUniverseProps,
+  IUniversePosition,
 } from "../interfaces/universeInterfaces";
 import { chooseSpaceshipPosition } from "./chooseSpaceshipPosition";
 
 export const handleKeyPressWithDelay = (
   height: number,
-  universePosition: IUniverseProps,
+  universePosition: IUniversePosition[],
   setItemPosition: React.Dispatch<
     React.SetStateAction<{ x: number; y: number; isReached: boolean }>
   >,
   setIsShaking: React.Dispatch<React.SetStateAction<boolean>>,
   key: string,
-  spaceShip: ISpaceShipInfo
+  spaceShip: ISpaceShipInfo,
 ) => {
   setTimeout(() => {
     if (key === "w" || key === "arrowup") {
@@ -22,7 +22,7 @@ export const handleKeyPressWithDelay = (
           isReached: false,
           y: chooseSpaceshipPosition(
             prev.y,
-            spaceShip.movementBoundary.y ,
+            spaceShip.movementBoundary.y,
             spaceShip.speed,
             setIsShaking,
             spaceShip.initialPosition
@@ -71,15 +71,21 @@ export const handleKeyPressWithDelay = (
           ),
         };
       });
-    } else if (key === "enter" && universePosition?.bottom) {
+    } else if (key === "enter" && universePosition.length > 0) {
+      
       setItemPosition((prev: { x: number; y: number; isReached: boolean }) => {
-        console.log("test1", universePosition.bottom, height - prev.y);
+        console.log("prev y",height - prev.y);
+
+        // prev.y gives distance from page bottom. For comparison we should find distance top between the item and the page top
         if (
+          universePosition[0]?.top &&
+          universePosition[0]?.bottom &&
           // prev.x >= universe.left
           // spaceShipRef.current.offsetLeft <= universe.right &&
-          height - prev.y >= universePosition.top &&
-          height - prev.y <= universePosition.bottom
+          height - prev.y + spaceShip.height >= universePosition[0]?.top 
+          // height - prev.y <= universePosition.bottom
         ) {
+        // console.log("test1", universePosition?.top + spaceShip.height, height - prev.y);
           console.log("BAŞŞARILI");
           // navigate(universePosition.link);
         }
