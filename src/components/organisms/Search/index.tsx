@@ -42,6 +42,7 @@ const Seach = ({
           setSelectedItems={setSelectedItems}
         />
       </div>
+      
       <List
         isLoading={isLoading}
         errorStatus={errorStatus}

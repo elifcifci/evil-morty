@@ -46,6 +46,7 @@ const ListItem = ({
         name={`checkbox-${id}`}
         id={id}
         value={name}
+        checked={!!selectedItems.find((item)=> item.id === id)}
       />
 
       <ListItemInfo

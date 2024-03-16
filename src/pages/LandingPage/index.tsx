@@ -22,12 +22,13 @@ const LandingPage = ({}) => {
       x: width - (spaceShipRef.current?.scrollWidth ?? 220) - 20,
       y: height - (spaceShipRef.current?.scrollWidth ?? 114) - 20,
     },
-    initialPosition: 20,
+    initialPositionX: 0,
+    initialPositionY: -6,
   };
 
   const [itemPosition, setItemPosition] = React.useState({
-    x: spaceShip.initialPosition,
-    y: spaceShip.initialPosition,
+    x: spaceShip.initialPositionX,
+    y: spaceShip.initialPositionY,
     isReached: false,
   });
   const [isShaking, setIsShaking] = React.useState(true);
