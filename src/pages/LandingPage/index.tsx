@@ -5,14 +5,14 @@ import Keyboard from "../../components/molecules/Keyboard";
 import UniverseList from "../../components/molecules/UniverseList";
 import useWindowDimensions from "../../utils/useWindowDimensions";
 import { keyboardList } from "../../constants/keyboard";
-import styles from "./styles.module.scss";
 import { IUniversePosition } from "../../interfaces/universeInterfaces";
-import { chooseSpaceshipPosition } from "../../utils/chooseSpaceshipPosition";
+import { handleKeyPressWithDelay } from "../../utils/handleKeyPressWithDelay";
+import styles from "./styles.module.scss";
 
 const LandingPage = ({}) => {
   const navigate = useNavigate();
-  const spaceShipRef = React.useRef<HTMLDivElement>(null);
   const { height, width } = useWindowDimensions();
+  const spaceShipRef = React.useRef<HTMLDivElement>(null);
   const spaceShip = {
     width: spaceShipRef.current?.scrollWidth ?? 200,
     height: spaceShipRef.current?.scrollHeight ?? 114,
@@ -37,14 +37,6 @@ const LandingPage = ({}) => {
   >([]);
   const [isHoverOnUniverse, setIsHoverOnUniverse] = React.useState(false);
 
-  const x = {
-    bottom: 557.0000152587891,
-    id: "universe-rick-and-morty",
-    left: 86.8125,
-    link: "/evil-morty",
-    right: 384.9375,
-    top: 252.1999969482422,
-  };
   React.useEffect(() => {
     // selectedKey remove when user key up
     const keyupListener = () => {
@@ -66,131 +58,16 @@ const LandingPage = ({}) => {
           setSelectedKey(key);
         }
 
-        // handleKeyPressWithDelay(
-        //   height,
-        //   universePosition,
-        //   setItemPosition,
-        //   setIsShaking,
-        //   key,
-        //   spaceShip,
-        // );
-
-        setTimeout(() => {
-          if (key === "w" || key === "arrowup") {
-            setItemPosition(
-              (prev: { x: number; y: number; isReached: boolean }) => {
-                if (
-                  prev.x >= x.left &&
-                  prev.x + spaceShip.width - 40 <= x.right &&
-                  height - prev.y - spaceShip.height >= x.top &&
-                  height - prev.y - spaceShip.height < x.bottom
-                ) {
-                  setIsHoverOnUniverse(true);
-                } else {
-                  setIsHoverOnUniverse(false);
-                }
-
-                return {
-                  ...prev,
-                  isReached: false,
-                  y: chooseSpaceshipPosition(
-                    prev.y,
-                    spaceShip.movementBoundary.y,
-                    spaceShip.speed,
-                    setIsShaking,
-                    spaceShip.initialPosition
-                  ),
-                };
-              }
-            );
-          } else if (key === "s" || key === "arrowdown") {
-            setItemPosition(
-              (prev: { x: number; y: number; isReached: boolean }) => {
-                if (
-                  prev.x >= x.left &&
-                  prev.x + spaceShip.width - 40 <= x.right &&
-                  height - prev.y - spaceShip.height >= x.top &&
-                  height - prev.y - spaceShip.height < x.bottom
-                ) {
-                  setIsHoverOnUniverse(true);
-                } else {
-                  setIsHoverOnUniverse(false);
-                }
-
-                return {
-                  ...prev,
-                  isReached: false,
-                  y: chooseSpaceshipPosition(
-                    prev.y,
-                    spaceShip.movementBoundary.y,
-                    -spaceShip.speed,
-                    setIsShaking,
-                    spaceShip.initialPosition
-                  ),
-                };
-              }
-            );
-          } else if (key === "d" || key === "arrowright") {
-            setItemPosition(
-              (prev: { x: number; y: number; isReached: boolean }) => {
-                if (
-                  prev.x >= x.left &&
-                  prev.x + spaceShip.width - 40 <= x.right &&
-                  height - prev.y - spaceShip.height >= x.top &&
-                  height - prev.y - spaceShip.height < x.bottom
-                ) {
-                  setIsHoverOnUniverse(true);
-                } else {
-                  setIsHoverOnUniverse(false);
-                }
-
-                return {
-                  ...prev,
-                  isReached: false,
-                  x: chooseSpaceshipPosition(
-                    prev.x,
-                    spaceShip.movementBoundary.x,
-                    spaceShip.speed,
-                    setIsShaking,
-                    spaceShip.initialPosition
-                  ),
-                };
-              }
-            );
-          } else if (key === "a" || key === "arrowleft") {
-            setItemPosition(
-              (prev: { x: number; y: number; isReached: boolean }) => {
-                return {
-                  ...prev,
-                  isReached: false,
-                  x: chooseSpaceshipPosition(
-                    prev.x,
-                    spaceShip.movementBoundary.x,
-                    -spaceShip.speed,
-                    setIsShaking,
-                    spaceShip.initialPosition
-                  ),
-                };
-              }
-            );
-          } else if (key === "enter") {
-            setItemPosition(
-              (prev: { x: number; y: number; isReached: boolean }) => {
-                // prev.y gives distance from page bottom. For comparison we should find distance top between the item and the page top
-                if (
-                  prev.x >= x.left &&
-                  prev.x + spaceShip.width - 40 <= x.right &&
-                  height - prev.y - spaceShip.height >= x.top &&
-                  height - prev.y - spaceShip.height < x.bottom
-                ) {
-                  setIsHoverOnUniverse(false);
-                  navigate(x.link);
-                }
-                return { ...prev, isReached: true };
-              }
-            );
-          }
-        }, 300);
+        handleKeyPressWithDelay(
+          height,
+          universePosition,
+          setItemPosition,
+          setIsShaking,
+          key,
+          spaceShip,
+          setIsHoverOnUniverse,
+          navigate
+        );
       });
 
     keyupListener();

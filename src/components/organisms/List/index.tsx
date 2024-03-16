@@ -23,7 +23,9 @@ const List = ({
       {errorStatus ? (
         <ErrorText errorStatus={errorStatus} />
       ) : isLoading ? (
-        <Loading />
+        <div className={styles.loadingWrapper}>
+          <Loading />
+        </div>
       ) : (
         <ul className={styles.searchItems}>
           {apiData === undefined ? (
