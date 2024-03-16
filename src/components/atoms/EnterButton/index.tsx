@@ -3,8 +3,8 @@ import styles from "./styles.module.scss";
 const EnterButton = () => {
   return (
     <div className={styles.enterWrapper}>
-      <div className={styles.topSquare} />
-      <div className={styles.bottomRectangle} />
+      <div className={styles.square} />
+      <div className={styles.rectangle} />
       <span>Enter</span>
     </div>
   );

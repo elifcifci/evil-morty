@@ -2,10 +2,26 @@ import { IUniverseItemProps } from "../../../interfaces/universeInterfaces";
 import Portal from "../../atoms/Portal";
 import styles from "./styles.module.scss";
 
-const UniverseItem = ({ img, link }: IUniverseItemProps) => {
+const UniverseItem = ({
+  referance,
+  isHoverOnUniverse,
+  img,
+  link,
+  id,
+}: IUniverseItemProps) => {
 
   return (
-    <li className={`anchorParent ${styles.itemWrapper} ${link ? "" : styles.disableUniverse}`}>
+    <li
+      ref={referance}
+      id={id}
+      className={`anchorParent ${styles.itemWrapper} ${
+        link ? "" : styles.disableUniverse
+      } ${
+        isHoverOnUniverse && id === "universe-rick-and-morty"
+          ? styles.reachedUniverse
+          : ""
+      }`}
+    >
       {link ? (
         <a href={link} />
       ) : (

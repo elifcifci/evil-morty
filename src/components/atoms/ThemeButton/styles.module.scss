@@ -10,7 +10,7 @@
   margin: 0 auto;
 }
 
-.evilThemeButton {
+.themeButton {
   background-color: $colorBlack;
   border-radius: 50px;
   width: 120px;
@@ -32,7 +32,28 @@
     top: -1px;
     width: 50px;
 
+    img:nth-child(2) {
+      visibility: hidden;
+      opacity: 0;
+    }
+
     img:last-child {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  .rickHead {
+    width: 50px;
+    top: -116px;
+    left: -1px;
+
+    img:first-child {
+      visibility: hidden;
+      opacity: 0;
+    }
+  
+    img:nth-child(2) {
       visibility: hidden;
       opacity: 0;
     }
@@ -43,6 +64,11 @@
     top: -55px;
 
     img:first-child {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    img:last-child {
       visibility: hidden;
       opacity: 0;
     }
@@ -58,6 +84,15 @@
     left: -2px;
   }
 }
+
+.errorTheme {
+  border: solid 3px $colorRickBlue;
+  @include transition(border);
+
+  [role="img-wrapper"] {
+    left: -8px;
+  }
+} 
 
 .evilTheme {
   border: solid 3px $colorEvilTheme;

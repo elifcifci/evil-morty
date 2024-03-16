@@ -27,26 +27,35 @@
 
   .pageTitle {
     color: $colorMortyYellow;
-    width: max-content;
     font-weight: bolder;
     background-color: black;
-    @include transition(color);
     margin-bottom: 6px;
     width: 100%;
+    @include transition(color);
+  }
+}
+
+.errorTheme {
+  ::-webkit-scrollbar-thumb {
+    background-color: $colorRickBlue;
+    @include transition(background-color);
+  }
+
+  .pageTitle {
+    color: $colorRickBlue;
+    @include transition(color);
   }
 }
 
 .evilTheme {
   ::-webkit-scrollbar-thumb {
     background-color: $colorEvilTheme;
-    // @include transition(background-color);
-    transition: background-color 2s ease-in;
+    @include transition(background-color);
   }
 
   .pageTitle {
     color: $colorEvilTheme;
-    width: max-content;
-    font-weight: bolder;
+    @include transition(color);
   }
 }
 

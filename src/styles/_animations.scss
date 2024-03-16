@@ -110,7 +110,7 @@
 // loadingAnimation ends here
 
 // transition starts here
-@mixin transition($element) {
-  transition: $element 0.5s ease-in;
+@mixin transition($element, $duration: 0.5s) {
+  transition: $element $duration ease-in;
 }
 // loadingAnimation ends here

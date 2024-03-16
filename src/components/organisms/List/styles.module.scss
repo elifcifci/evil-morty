@@ -4,7 +4,7 @@
 @import "../../../styles/breakPoints";
 
 .listWrapper {
-  height: 50vh;
+  height: 40vh;
   border: 3px solid $colorMortyYellow;
   background-color: $colorBlack;
   border-radius: 10px;
@@ -12,7 +12,7 @@
 }
 
 .loadingWrapper {
-  height: 50vh;
+  height: 40vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,7 +23,7 @@
   align-items: center;
   padding: 0px 12px 0px 24px;
   margin: 0;
-  max-height: 50vh;
+  max-height: 40vh;
   overflow: hidden;
   overflow-y: scroll;
 }
@@ -33,11 +33,16 @@
   @include transition(border);
 }
 
+.errorTheme {
+  border: 3px solid $colorRickBlue;
+  @include transition(border);
+}
+
 .quote {
   color: white;
   padding: 8px 12px;
   text-align: center;
-  height: 50vh;
+  height: 40vh;
   display: flex;
   justify-content: center;
   align-items: center;

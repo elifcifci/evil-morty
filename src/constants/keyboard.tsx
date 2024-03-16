@@ -7,16 +7,16 @@ import { IItemList, IKeyListProps } from "../interfaces/keyboardInterfaces";
 
 export const keyboardList: IKeyListProps = {
   letters: ["a", "w", "s", "d"],
-  arrows: ["left", "up", "down", "right"],
+  arrows: ["arrowleft", "arrowup", "arrowdown", "arrowright"],
   enter: ""
 };
 
 export const itemList: IItemList = {
   arrows: {
-    right: <ArrowRight iconSize="xl" />,
-    left: <ArrowLeft iconSize="xl" />,
-    up: <ArrowUp iconSize="xl" />,
-    down: <ArrowDown iconSize="xl" />,
+    arrowright: <ArrowRight iconSize="xl" />,
+    arrowleft: <ArrowLeft iconSize="xl" />,
+    arrowup: <ArrowUp iconSize="xl" />,
+    arrowdown: <ArrowDown iconSize="xl" />,
   },
   letters: {
     d: <span>D</span>,

@@ -12,11 +12,11 @@
   height: 52px;
   @include transition(border);
   overflow-y: scroll;
-}
 
-.caretDown {
-  fill: $colorMortyYellow;
-  @include transition(fill);
+  .caretDown {
+    fill: $colorMortyYellow;
+    @include transition(fill);
+  }
 }
 
 .list {
@@ -47,6 +47,16 @@
     &:focus-visible {
       outline: none;
     }
+  }
+}
+
+.errorTheme {
+  border: 3px solid $colorRickBlue;
+  @include transition(border);
+
+  .caretDown {
+    fill: $colorRickBlue;
+    @include transition(fill);
   }
 }
 

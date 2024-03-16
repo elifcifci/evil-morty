@@ -1,4 +1,4 @@
-export type ArrowDirection = "left" | "right" | "up" | "down";
+export type ArrowDirection = "arrowleft" | "arrowright" | "arrowup" | "arrowdown";
 export type LetterDirection = "d" | "a" | "w" | "s";
 export type KeyboardTypes = "arrows" | "letters";
 
@@ -9,16 +9,17 @@ export interface IKeyListProps {
 }
 
 export interface IKeyItemProps {
+  selectedKey: string;
   keyboardType: string;
   direction?: ArrowDirection | LetterDirection;
 }
 
 export interface IItemList {
   arrows: {
-    right: JSX.Element;
-    left: JSX.Element;
-    up: JSX.Element;
-    down: JSX.Element;
+    arrowright: JSX.Element;
+    arrowleft: JSX.Element;
+    arrowup: JSX.Element;
+    arrowdown: JSX.Element;
   };
   letters: {
     d: JSX.Element;
@@ -30,5 +31,6 @@ export interface IItemList {
 }
 
 export interface IKeyboardProps {
+  selectedKey: string;
   className: string;
 }

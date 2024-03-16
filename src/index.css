@@ -6,8 +6,10 @@ body {
 }
 
 .pageWrapper {
+  box-sizing: border-box;
   padding: 20px 10px;
   gap: 20px;
+  height: 100vh;
 }
 
 .anchorParent {
