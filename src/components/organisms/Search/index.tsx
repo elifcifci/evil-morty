@@ -16,6 +16,18 @@ const Seach = ({
   const [selectedItems, setSelectedItems] = React.useState<
     { id: string; name: string }[]
   >([]);
+  const inputRef = React.useRef<HTMLInputElement>(null);
+  const ulRef = React.useRef<HTMLUListElement>(null);
+
+  const handleClick = () => {
+    if (inputRef.current !== null) {
+      inputRef.current.focus();
+      ulRef.current?.scrollIntoView({
+        block: "end",
+        behavior: "smooth",
+      })
+    }
+  };
 
   return (
     <div
@@ -33,6 +45,8 @@ const Seach = ({
         </h1>
 
         <SeachInput
+          ulRef={ulRef}
+          inputRef={inputRef}
           hasError={!!errorStatus}
           setErrorStatus={setErrorStatus}
           isEvilMode={isEvilMode}
@@ -42,8 +56,8 @@ const Seach = ({
           setSelectedItems={setSelectedItems}
         />
       </div>
-      
       <List
+        handleClick={handleClick}
         isLoading={isLoading}
         errorStatus={errorStatus}
         apiData={apiData}

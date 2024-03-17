@@ -6,6 +6,7 @@ import styles from "./styles.module.scss";
 import ErrorText from "../../molecules/ErrorText";
 
 const List = ({
+  handleClick,
   isLoading,
   errorStatus,
   apiData,
@@ -36,6 +37,7 @@ const List = ({
             apiData?.map((obj: IAllCharacterProp) => {
               return (
                 <ListItem
+                  handleClick={handleClick}
                   isEvilMode={isEvilMode}
                   key={`${obj.id}-${obj.name}`}
                   selectedItems={selectedItems}

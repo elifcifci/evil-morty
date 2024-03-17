@@ -21,6 +21,7 @@ export interface ISeachItemProps {
 }
 
 export interface ISeachListItemProps {
+  handleClick: () => void;
   isEvilMode: boolean;
   id: string;
   episodes: number;
@@ -34,6 +35,8 @@ export interface ISeachListItemProps {
 }
 
 export interface ISeachInputProps {
+  ulRef: React.RefObject<HTMLUListElement>;
+  inputRef: React.RefObject<HTMLInputElement>;
   hasError: boolean;
   setErrorStatus: React.Dispatch<
     React.SetStateAction<undefined | number | boolean>
@@ -48,6 +51,7 @@ export interface ISeachInputProps {
 }
 
 export interface IListProps {
+  handleClick: () => void;
   isLoading: boolean;
   errorStatus: undefined | boolean | number;
   apiData: undefined | IAllCharacterProp[];

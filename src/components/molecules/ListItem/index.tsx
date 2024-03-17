@@ -4,6 +4,7 @@ import { ISeachListItemProps } from "../../../interfaces/SearchProps";
 import styles from "./searchItem.module.scss";
 
 const ListItem = ({
+  handleClick,
   isEvilMode,
   id,
   name,
@@ -16,6 +17,8 @@ const ListItem = ({
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   const handleKeyDownAndClick = () => {
+    handleClick();
+
     if (inputRef.current !== null) {
       inputRef.current.checked = !inputRef.current.checked;
 
