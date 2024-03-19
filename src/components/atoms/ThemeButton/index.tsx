@@ -1,37 +1,39 @@
 import React from "react";
-import { IEvilMortyThemaProps } from "../../../interfaces/SearchProps";
+import { IThemeButtonProps } from "../../../interfaces/SearchProps";
 import styles from "./styles.module.scss";
 
-const EvilMortyThema = ({
+const ThemeButton = ({
   isEvilMode,
   setIsEvilMode,
-  setNotFountText
-}: IEvilMortyThemaProps) => {
-
+  setInputValue,
+}: IThemeButtonProps) => {
   const handleClick = () => {
-    setNotFountText(undefined)
     setIsEvilMode((prew: boolean) => !prew);
+    setInputValue("");
   };
 
   const handlKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
     if (e.code === "Enter") {
-      setNotFountText(undefined)
       setIsEvilMode((prew: boolean) => !prew);
+      setInputValue("");
     }
   };
 
   return (
     <div className={styles.buttonWrapper}>
       <div
-        className={`${styles.evilThemeButton} ${
-          isEvilMode ? styles.evilTheme : styles.mortyThema
-        }`}
+        className={`${styles.themeButton} 
+        ${isEvilMode ? styles.evilTheme : styles.mortyThema}`}
         tabIndex={0}
         onKeyDown={(e) => handlKeyDown(e)}
         onClick={handleClick}
       >
         <div
-          className={isEvilMode ? styles.evilHead : styles.mortyHead}
+          className={
+            isEvilMode
+              ? styles.evilHead
+              : styles.mortyHead
+          }
           role="img-wrapper"
         >
           <img src="/images/evil-head.png" />
@@ -42,4 +44,4 @@ const EvilMortyThema = ({
   );
 };
 
-export default EvilMortyThema;
+export default ThemeButton;

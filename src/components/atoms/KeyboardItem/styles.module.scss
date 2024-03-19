@@ -1,15 +1,32 @@
 @import "../../../styles/variables";
+@import "../../../styles/animations";
 
 .keyItemWrapper {
-    background-color: $colorSecondary ;
-    font-size: 30px;
-    font-weight: 700;
-    text-align: center;
-    border-radius: 10px;
-    width: 50px;
-    height: 50px;
-    font-family: "Orbitron", sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-color: $colorMortyYellow;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  font-family: "Orbitron", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include transition(background-color, 0.3ms);
+}
+
+.selectedKey {
+  background-color: $colorSecondary;
+  @include transition(background-color, 0.3ms);
+}
+
+.unselectedEnterKey > div > div {
+  background-color: $colorMortyYellow;
+  @include transition(background-color, 0.3ms);
+}
+
+.selectedEnterKey > div > div {
+  background-color: $colorSecondary;
+  @include transition(background-color, 0.3ms);
 }

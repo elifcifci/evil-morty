@@ -1,15 +1,12 @@
 export interface INotificationProps {
   type: "error" | "suscess";
-  status: undefined | number;
+  status: undefined | number | boolean;
   text: undefined | string;
   setIsOpenedNotification: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export interface IErrorStateProps {
-  message: undefined | string;
-  status: undefined | number;
-}
+export type IErrorStatus = undefined | number | boolean;
 
 export interface IErrorProps {
-  error: IErrorStateProps;
+  errorStatus: IErrorStatus;
 }

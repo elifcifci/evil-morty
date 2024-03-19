@@ -10,7 +10,7 @@
   margin: 0 auto;
 }
 
-.evilThemeButton {
+.themeButton {
   background-color: $colorBlack;
   border-radius: 50px;
   width: 120px;
@@ -56,6 +56,15 @@
   [role="img-wrapper"] {
     @include transition(left);
     left: -2px;
+  }
+}
+
+.errorTheme {
+  border: solid 3px $colorRickBlue;
+  @include transition(border);
+
+  [role="img-wrapper"] {
+    left: -8px;
   }
 }
 

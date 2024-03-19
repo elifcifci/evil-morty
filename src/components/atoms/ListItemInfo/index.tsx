@@ -2,7 +2,7 @@ import { IListItemInfoProps } from "../../../interfaces/SearchProps";
 import styles from "./styles.module.scss";
 
 const ListItemInfo = ({
-  id,
+  isEvilMode,
   name,
   episodes,
   inputValue,
@@ -22,7 +22,13 @@ const ListItemInfo = ({
         <div>
           <p role="character-name">
             <span>{name.slice(0, firstIndexOfSerched)}</span>
-            <span>{name.slice(firstIndexOfSerched, lastIndexOfSerched)}</span>
+            <span
+              className={`${styles.selectedWord} ${
+                isEvilMode ? styles.selectedEvilWord : ""
+              }`}
+            >
+              {name.slice(firstIndexOfSerched, lastIndexOfSerched)}
+            </span>
             <span>{name.slice(lastIndexOfSerched, name.length)}</span>
           </p>
         </div>

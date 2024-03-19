@@ -1,41 +1,31 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import HomepageButton from "../../components/atoms/HomepageButton";
-import EvilMortyThema from "../../components/atoms/EvilMortyButton";
-import Notification from "../../components/molecules/Notification";
+import ThemeButton from "../../components/atoms/ThemeButton";
 import Seach from "../../components/organisms/Search";
-import { getCharacters } from "../../api/ricks-api";
-import { IErrorStateProps } from "../../interfaces/erorInterfaces";
+import { getCharacters } from "../../api/morty-api";
+import { mortyUniverseInterface } from "../../Interfaces/mortyUniverseInterface";
+import { IErrorStatus } from "../../interfaces/erorInterfaces";
 import styles from "./styles.module.scss";
 
-const MortyUniverse = () => {
-  const [isOpenedNotification, setIsOpenedNotification] = React.useState(false);
-  const [isEvilMode, setIsEvilMode] = React.useState(false);
-  const [notFountText, setNotFountText] = React.useState<string | undefined>(
-    undefined
-  );
+const MortyUniverse = ({
+  isEvilMode,
+  setIsEvilMode,
+}: mortyUniverseInterface) => {
+  const [isLoading, setIsLoading] = React.useState(false);
   const [apiData, setApiData] = React.useState();
-  const [error, setError] = React.useState<IErrorStateProps>({
-    message: undefined,
-    status: undefined,
-  });
-  const navigate = useNavigate();
+  const [inputValue, setInputValue] = React.useState("");
+  const [errorStatus, setErrorStatus] = React.useState<IErrorStatus>(undefined);
 
   React.useEffect(() => {
-    getCharacters()
+    getCharacters(inputValue, setIsLoading)
       .then((data) => {
+        setErrorStatus(false);
         setApiData(data.results);
       })
       .catch((err) => {
         console.log(err);
-        setIsOpenedNotification(true);
-        setError({ message: err.message, status: err.response.status });
+        setErrorStatus(err.response.status);
       });
-  }, []);
-
-  const redirectPage = (targetPath: string) => {
-    navigate(targetPath);
-  };
+  }, [inputValue]);
 
   return (
     <div className={`pageWrapper ${styles.mortyUniverseWrapper}`}>
@@ -48,29 +38,21 @@ const MortyUniverse = () => {
         />
       )}
 
-      <EvilMortyThema
+      <ThemeButton
         isEvilMode={isEvilMode}
         setIsEvilMode={setIsEvilMode}
-        setNotFountText={setNotFountText}
+        setInputValue={setInputValue}
       />
-
-      {isOpenedNotification && (
-        <Notification
-          type="error"
-          text={error.message}
-          status={error.status}
-          setIsOpenedNotification={setIsOpenedNotification}
-        />
-      )}
 
       <Seach
-        notFountText={notFountText}
-        setNotFountText={setNotFountText}
+        isLoading={isLoading}
+        inputValue={inputValue}
+        setInputValue={setInputValue}
         isEvilMode={isEvilMode}
-        error={error}
+        errorStatus={errorStatus}
+        setErrorStatus={setErrorStatus}
         apiData={apiData}
       />
-      <HomepageButton isEvilMode={isEvilMode} redirectPage={redirectPage} />
     </div>
   );
 };

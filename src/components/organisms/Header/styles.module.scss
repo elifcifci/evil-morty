@@ -1,0 +1,98 @@
+@import "../../../styles/breakPoints";
+@import "../../../styles/variables";
+@import "../../../styles/animations";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  height: 120px;
+  background-color: rgba($colorBlack, 0.6);
+  font-family: "Orbitron", sans-serif;
+}
+
+.innerWrapper {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  width: calc(100% - 60px);
+}
+
+.introduction {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+
+  p {
+    font-weight: 900;
+    font-size: x-large;
+    text-align: center;
+    margin: 0;
+    color: $colorMortyYellow;
+    @include transition(color);
+  }
+
+  p:last-child,
+  a {
+    font-size: large;
+    margin: 0;
+    color: $colorMortyYellow;
+    @include transition(color);
+    display: none;
+  }
+}
+
+.evilTheme {
+  p,
+  p:last-child,
+  a {
+    color: $colorEvilTheme;
+    @include transition(color);
+  }
+}
+
+.errorTheme {
+  p,
+  p:last-child,
+  a {
+    color: $colorRickBlue;
+    @include transition(color);
+  }
+}
+
+.keyWrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.keys {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+@media screen and (min-width: $xl) {
+  .header {
+    height: 140px;
+  }
+
+  .introduction {
+    p {
+      font-size: xx-large;
+      text-align: left;
+    }
+
+    p:last-child,
+    a {
+      font-size: large;
+      display: initial;
+    }
+  }
+}

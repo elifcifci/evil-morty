@@ -1,11 +1,23 @@
-import {IPortalProps} from "../../../interfaces/SearchProps"
-import styles from "./styles.module.scss"
+import { IPortalProps } from "../../../interfaces/SearchProps";
+import styles from "./styles.module.scss";
 
-
-const Portal = ({className, imageSize}: IPortalProps) => {
+const Portal = ({
+  imgType = "gif",
+  className,
+  imageSize,
+  isEvilMode = false,
+}: IPortalProps) => {
   return (
-    <div className={`${styles.portalWrapper} ${className}  ${imageSize ? styles[`${imageSize}SizeImage`] : ""}`}>
-      <img src="/images/portal.gif" alt="Portal" />
+    <div
+      className={`${styles.portalWrapper} ${className}
+       ${imageSize ? styles[`${imageSize}SizeImage`] : ""}`}
+    >
+      <img
+        src={
+          imgType === "gif" ? "/images/portal.gif" : isEvilMode ? "/images/yellow-portal.png" : "/images/green-portal.png"
+        }
+        alt="Portal"
+      />
     </div>
   );
 };

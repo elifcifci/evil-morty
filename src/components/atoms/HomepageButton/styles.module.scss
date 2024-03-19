@@ -4,16 +4,13 @@
 
 .homePageButton {
   display: none;
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
 }
 
 @media screen and (min-width: $xl) {
   .homePageButton {
     display: flex;
-    width: 220px;
-    height: 220px;
+    width: 120px;
+    height: 120px;
     background-color: transparent;
     border: none;
     border-radius: 100px;
@@ -33,12 +30,8 @@
 
   .evilTheme {
     p {
-      color: $colorEvilThemeSecondary;
+      color: $colorEvilTheme;
       @include transition(color);
-    }
-
-    img {
-      filter: sepia(100%);
     }
   }
 }

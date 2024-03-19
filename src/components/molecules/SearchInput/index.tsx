@@ -1,18 +1,18 @@
-import React from "react";
 import SelectedList from "../SelectedList";
 import { CaretDown } from "../../../../public/icons/CaretDown";
 import { ISeachInputProps } from "../../../interfaces/SearchProps";
 import styles from "./searchInput.module.scss";
 
 const SeachInput = ({
+  ulRef,
+  inputRef,
+  setErrorStatus,
   isEvilMode,
   inputValue,
   setInputValue,
   selectedItems,
   setSelectedItems,
 }: ISeachInputProps) => {
-  const inputRef = React.useRef<HTMLInputElement>(null);
-
   const handleClick = () => {
     if (inputRef.current !== null) {
       inputRef.current.focus();
@@ -20,28 +20,28 @@ const SeachInput = ({
   };
 
   const handleChange = (e: any) => {
-    setInputValue(e.target.value);
+    setInputValue(e.target.value.toString());
+    setErrorStatus(undefined);
   };
 
   return (
     <div
-      className={`${styles.seachInputWrapper} ${
-        isEvilMode ? styles.evilTheme : ""
-      }`}
+      className={`${styles.seachInputWrapper}
+       ${isEvilMode ? styles.evilTheme : ""}`}
       onClick={handleClick}
     >
-      <ul className={styles.list}>
+      <ul ref={ulRef} className={styles.list}>
         <SelectedList
           isEvilMode={isEvilMode}
           selectedItems={selectedItems}
           setSelectedItems={setSelectedItems}
         />
         <li
-          style={{
-            width: `${
-              inputValue.length > 0 ? inputValue.length * 8 + 15 : 0
-            }px`,
-          }}
+        // style={{
+        //   width: `${
+        //     inputValue.length > 0 ? inputValue.length * 8 + 15 : 0
+        //   }px`,
+        // }}
         >
           <input
             ref={inputRef}

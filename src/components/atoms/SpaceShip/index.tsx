@@ -17,7 +17,7 @@ const SpaceShip = ({
         imageSize ? styles[`${imageSize}SizeImage`] : ""
       }`}
     >
-      <img src="/images/spaceship.png" alt="Portal" />
+      <img src="/images/spaceship.png" alt="Spaceship" />
     </div>
   );
 };
