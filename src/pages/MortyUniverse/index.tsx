@@ -1,13 +1,15 @@
 import React from "react";
-import HomepageButton from "../../components/atoms/HomepageButton";
 import ThemeButton from "../../components/atoms/ThemeButton";
 import Seach from "../../components/organisms/Search";
 import { getCharacters } from "../../api/morty-api";
+import { mortyUniverseInterface } from "../../Interfaces/mortyUniverseInterface";
 import { IErrorStatus } from "../../interfaces/erorInterfaces";
 import styles from "./styles.module.scss";
 
-const MortyUniverse = () => {
-  const [isEvilMode, setIsEvilMode] = React.useState(false);
+const MortyUniverse = ({
+  isEvilMode,
+  setIsEvilMode,
+}: mortyUniverseInterface) => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [apiData, setApiData] = React.useState();
   const [inputValue, setInputValue] = React.useState("");
@@ -37,7 +39,6 @@ const MortyUniverse = () => {
       )}
 
       <ThemeButton
-        hasError={!!errorStatus}
         isEvilMode={isEvilMode}
         setIsEvilMode={setIsEvilMode}
         setInputValue={setInputValue}
@@ -52,7 +53,6 @@ const MortyUniverse = () => {
         setErrorStatus={setErrorStatus}
         apiData={apiData}
       />
-      <HomepageButton hasError={!!errorStatus} isEvilMode={isEvilMode} />
     </div>
   );
 };

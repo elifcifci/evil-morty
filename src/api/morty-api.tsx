@@ -10,13 +10,14 @@ export const getCharacters = async (
   try {
     setIsLoading(true);
     const response = await axios.get(`${apiUrl}/character/?name=${inputValue}`);
-    setIsLoading(false);
 
     if (response.data) {
+      setIsLoading(false);
       return response.data;
     }
   } catch (error) {
     console.error("Error:", error);
+    setIsLoading(false);
     throw error;
   }
 };

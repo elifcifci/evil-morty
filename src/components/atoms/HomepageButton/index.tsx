@@ -1,20 +1,20 @@
-import { IHomepageButtonProps } from "../../../interfaces/atomInterfaces";
 import { useNavigate } from "react-router-dom";
 import Portal from "../Portal";
+import { IHomepageButtonProps } from "../../../Interfaces/atomInterfaces";
 import styles from "./styles.module.scss";
 
 const HomepageButton = ({
-  hasError,
   isEvilMode,
+  className,
 }: IHomepageButtonProps) => {
   const navigate = useNavigate();
 
   return (
     <button
       onClick={() => navigate("/")}
-      className={`${styles.homePageButton} 
-        ${hasError ? styles.errorTheme : ""}
-        ${isEvilMode ? styles.evilTheme : ""}`}
+      className={`${styles.homePageButton}
+        ${isEvilMode ? styles.evilTheme : ""}
+        ${className}`}
       tabIndex={0}
       onKeyDown={(e) => {
         if (e.key === "Enter") {
@@ -22,7 +22,7 @@ const HomepageButton = ({
         }
       }}
     >
-      <Portal className={styles.portal} imageSize="m" />
+      <Portal imgType={"png"} isEvilMode={isEvilMode} className={styles.portal} imageSize="xs"/>
       <p>Go back</p>
     </button>
   );

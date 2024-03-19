@@ -37,7 +37,6 @@ export interface ISeachListItemProps {
 export interface ISeachInputProps {
   ulRef: React.RefObject<HTMLUListElement>;
   inputRef: React.RefObject<HTMLInputElement>;
-  hasError: boolean;
   setErrorStatus: React.Dispatch<
     React.SetStateAction<undefined | number | boolean>
   >;
@@ -72,8 +71,10 @@ export interface IListItemInfoProps {
 }
 
 export interface IPortalProps {
+  isEvilMode?: boolean,
+  imgType?: "png" | "gif",
   className?: string;
-  imageSize: "s" | "m" | "l";
+  imageSize: "xs" | "s" | "m" | "l";
 }
 
 export interface ISpaceShipProps {
@@ -96,7 +97,6 @@ export interface ISearchProps {
 }
 
 export interface IThemeButtonProps {
-  hasError: boolean;
   isEvilMode: boolean;
   setIsEvilMode: React.Dispatch<React.SetStateAction<boolean>>;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;

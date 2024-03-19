@@ -17,9 +17,7 @@ const List = ({
 }: IListProps) => {
   return (
     <div
-      className={`${styles.listWrapper} ${
-        !!errorStatus ? styles.errorTheme : ""
-      } ${isEvilMode ? styles.evilTheme : ""}`}
+      className={`${styles.listWrapper} ${isEvilMode ? styles.evilTheme : ""}`}
     >
       {errorStatus ? (
         <ErrorText errorStatus={errorStatus} />

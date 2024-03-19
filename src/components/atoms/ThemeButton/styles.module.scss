@@ -32,28 +32,7 @@
     top: -1px;
     width: 50px;
 
-    img:nth-child(2) {
-      visibility: hidden;
-      opacity: 0;
-    }
-
     img:last-child {
-      visibility: hidden;
-      opacity: 0;
-    }
-  }
-
-  .rickHead {
-    width: 50px;
-    top: -116px;
-    left: -1px;
-
-    img:first-child {
-      visibility: hidden;
-      opacity: 0;
-    }
-  
-    img:nth-child(2) {
       visibility: hidden;
       opacity: 0;
     }
@@ -64,11 +43,6 @@
     top: -55px;
 
     img:first-child {
-      visibility: hidden;
-      opacity: 0;
-    }
-
-    img:last-child {
       visibility: hidden;
       opacity: 0;
     }
@@ -92,7 +66,7 @@
   [role="img-wrapper"] {
     left: -8px;
   }
-} 
+}
 
 .evilTheme {
   border: solid 3px $colorEvilTheme;

@@ -12,6 +12,7 @@
   height: 52px;
   box-sizing: content-box;
   position: relative;
+  @include transition(border);
 
   .caretDown {
     position: absolute;

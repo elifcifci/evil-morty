@@ -31,23 +31,19 @@ const Seach = ({
 
   return (
     <div
-      className={`${styles.seachWrapper}  ${
-        !!errorStatus ? styles.errorTheme : ""
-      } ${isEvilMode ? styles.evilTheme : ""} `}
+      className={`${styles.seachWrapper}
+      ${isEvilMode ? styles.evilTheme : ""} `}
     >
       <div>
         <h1 className={`${styles.pageTitle} ${isEvilMode ? "evilTheme" : ""}`}>
           {isEvilMode
             ? "The choice is yours... for now."
-            : errorStatus
-            ? "Pick new one, Morty. But don't screw it up."
             : "Uh, I-I don't know... W-which one is the best?"}
         </h1>
 
         <SeachInput
           ulRef={ulRef}
           inputRef={inputRef}
-          hasError={!!errorStatus}
           setErrorStatus={setErrorStatus}
           isEvilMode={isEvilMode}
           inputValue={inputValue}

@@ -41,6 +41,5 @@ export interface ISpaceShipInfo {
   height: number;
   speed: number;
   movementBoundary: { x: number; y: number };
-  initialPositionX: number;
-  initialPositionY: number;
+  initialPosition: number;
 }
