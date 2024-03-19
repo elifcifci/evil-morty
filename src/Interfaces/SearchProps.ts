@@ -21,6 +21,7 @@ export interface ISeachItemProps {
 }
 
 export interface ISeachListItemProps {
+  handleClick: () => void;
   isEvilMode: boolean;
   id: string;
   episodes: number;
@@ -34,7 +35,8 @@ export interface ISeachListItemProps {
 }
 
 export interface ISeachInputProps {
-  hasError: boolean;
+  ulRef: React.RefObject<HTMLUListElement>;
+  inputRef: React.RefObject<HTMLInputElement>;
   setErrorStatus: React.Dispatch<
     React.SetStateAction<undefined | number | boolean>
   >;
@@ -48,6 +50,7 @@ export interface ISeachInputProps {
 }
 
 export interface IListProps {
+  handleClick: () => void;
   isLoading: boolean;
   errorStatus: undefined | boolean | number;
   apiData: undefined | IAllCharacterProp[];
@@ -68,8 +71,10 @@ export interface IListItemInfoProps {
 }
 
 export interface IPortalProps {
+  isEvilMode?: boolean,
+  imgType?: "png" | "gif",
   className?: string;
-  imageSize: "s" | "m" | "l";
+  imageSize: "xs" | "s" | "m" | "l";
 }
 
 export interface ISpaceShipProps {
@@ -92,7 +97,6 @@ export interface ISearchProps {
 }
 
 export interface IThemeButtonProps {
-  hasError: boolean;
   isEvilMode: boolean;
   setIsEvilMode: React.Dispatch<React.SetStateAction<boolean>>;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;

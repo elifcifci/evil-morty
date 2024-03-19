@@ -16,24 +16,34 @@ const Seach = ({
   const [selectedItems, setSelectedItems] = React.useState<
     { id: string; name: string }[]
   >([]);
+  const inputRef = React.useRef<HTMLInputElement>(null);
+  const ulRef = React.useRef<HTMLUListElement>(null);
+
+  const handleClick = () => {
+    if (inputRef.current !== null) {
+      inputRef.current.focus();
+      ulRef.current?.scrollIntoView({
+        block: "end",
+        behavior: "smooth",
+      })
+    }
+  };
 
   return (
     <div
-      className={`${styles.seachWrapper}  ${
-        !!errorStatus ? styles.errorTheme : ""
-      } ${isEvilMode ? styles.evilTheme : ""} `}
+      className={`${styles.seachWrapper}
+      ${isEvilMode ? styles.evilTheme : ""} `}
     >
       <div>
         <h1 className={`${styles.pageTitle} ${isEvilMode ? "evilTheme" : ""}`}>
           {isEvilMode
             ? "The choice is yours... for now."
-            : errorStatus
-            ? "Pick new one, Morty. But don't screw it up."
             : "Uh, I-I don't know... W-which one is the best?"}
         </h1>
 
         <SeachInput
-          hasError={!!errorStatus}
+          ulRef={ulRef}
+          inputRef={inputRef}
           setErrorStatus={setErrorStatus}
           isEvilMode={isEvilMode}
           inputValue={inputValue}
@@ -42,8 +52,8 @@ const Seach = ({
           setSelectedItems={setSelectedItems}
         />
       </div>
-      
       <List
+        handleClick={handleClick}
         isLoading={isLoading}
         errorStatus={errorStatus}
         apiData={apiData}

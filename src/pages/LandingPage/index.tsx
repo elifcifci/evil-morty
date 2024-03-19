@@ -22,13 +22,12 @@ const LandingPage = ({}) => {
       x: width - (spaceShipRef.current?.scrollWidth ?? 220) - 20,
       y: height - (spaceShipRef.current?.scrollWidth ?? 114) - 20,
     },
-    initialPositionX: 0,
-    initialPositionY: -6,
+    initialPosition: 20,
   };
 
   const [itemPosition, setItemPosition] = React.useState({
-    x: spaceShip.initialPositionX,
-    y: spaceShip.initialPositionY,
+    x: spaceShip.initialPosition,
+    y: spaceShip.initialPosition,
     isReached: false,
   });
   const [isShaking, setIsShaking] = React.useState(true);
@@ -43,6 +42,7 @@ const LandingPage = ({}) => {
     const keyupListener = () => {
       document.addEventListener("keyup", () => {
         setSelectedKey("");
+        document.removeEventListener("keydown", keydownListener);
       });
     };
 

@@ -6,6 +6,7 @@ import styles from "./styles.module.scss";
 import ErrorText from "../../molecules/ErrorText";
 
 const List = ({
+  handleClick,
   isLoading,
   errorStatus,
   apiData,
@@ -16,9 +17,7 @@ const List = ({
 }: IListProps) => {
   return (
     <div
-      className={`${styles.listWrapper} ${
-        !!errorStatus ? styles.errorTheme : ""
-      } ${isEvilMode ? styles.evilTheme : ""}`}
+      className={`${styles.listWrapper} ${isEvilMode ? styles.evilTheme : ""}`}
     >
       {errorStatus ? (
         <ErrorText errorStatus={errorStatus} />
@@ -36,6 +35,7 @@ const List = ({
             apiData?.map((obj: IAllCharacterProp) => {
               return (
                 <ListItem
+                  handleClick={handleClick}
                   isEvilMode={isEvilMode}
                   key={`${obj.id}-${obj.name}`}
                   selectedItems={selectedItems}

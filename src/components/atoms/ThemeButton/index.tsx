@@ -3,7 +3,6 @@ import { IThemeButtonProps } from "../../../interfaces/SearchProps";
 import styles from "./styles.module.scss";
 
 const ThemeButton = ({
-  hasError,
   isEvilMode,
   setIsEvilMode,
   setInputValue,
@@ -24,7 +23,6 @@ const ThemeButton = ({
     <div className={styles.buttonWrapper}>
       <div
         className={`${styles.themeButton} 
-        ${hasError ? styles.errorTheme : ""}
         ${isEvilMode ? styles.evilTheme : styles.mortyThema}`}
         tabIndex={0}
         onKeyDown={(e) => handlKeyDown(e)}
@@ -34,15 +32,12 @@ const ThemeButton = ({
           className={
             isEvilMode
               ? styles.evilHead
-              : hasError
-              ? styles.rickHead
               : styles.mortyHead
           }
           role="img-wrapper"
         >
           <img src="/images/evil-head.png" />
           <img src="/images/morty-head.png" />
-          <img src="/images/rick-head.png" />
         </div>
       </div>
     </div>

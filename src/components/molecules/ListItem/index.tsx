@@ -4,6 +4,7 @@ import { ISeachListItemProps } from "../../../interfaces/SearchProps";
 import styles from "./searchItem.module.scss";
 
 const ListItem = ({
+  handleClick,
   isEvilMode,
   id,
   name,
@@ -16,10 +17,12 @@ const ListItem = ({
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   const handleKeyDownAndClick = () => {
+    handleClick();
+
     if (inputRef.current !== null) {
       inputRef.current.checked = !inputRef.current.checked;
 
-      if (inputRef.current.checked) {
+      if (inputRef.current?.checked) {
         setSelectedItems([...selectedItems, { id: id, name: name }]);
       } else {
         setSelectedItems(selectedItems.filter((item) => item.id !== id));
@@ -46,7 +49,7 @@ const ListItem = ({
         name={`checkbox-${id}`}
         id={id}
         value={name}
-        checked={!!selectedItems.find((item)=> item.id === id)}
+        defaultChecked={!!selectedItems.find((item)=> item.id === id)}
       />
 
       <ListItemInfo

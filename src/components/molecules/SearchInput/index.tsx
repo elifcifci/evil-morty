@@ -1,11 +1,11 @@
-import React from "react";
 import SelectedList from "../SelectedList";
 import { CaretDown } from "../../../../public/icons/CaretDown";
 import { ISeachInputProps } from "../../../interfaces/SearchProps";
 import styles from "./searchInput.module.scss";
 
 const SeachInput = ({
-  hasError,
+  ulRef,
+  inputRef,
   setErrorStatus,
   isEvilMode,
   inputValue,
@@ -13,8 +13,6 @@ const SeachInput = ({
   selectedItems,
   setSelectedItems,
 }: ISeachInputProps) => {
-  const inputRef = React.useRef<HTMLInputElement>(null);
-
   const handleClick = () => {
     if (inputRef.current !== null) {
       inputRef.current.focus();
@@ -29,11 +27,10 @@ const SeachInput = ({
   return (
     <div
       className={`${styles.seachInputWrapper}
-       ${hasError ? styles.errorTheme : ""}
        ${isEvilMode ? styles.evilTheme : ""}`}
       onClick={handleClick}
     >
-      <ul className={styles.list}>
+      <ul ref={ulRef} className={styles.list}>
         <SelectedList
           isEvilMode={isEvilMode}
           selectedItems={selectedItems}
