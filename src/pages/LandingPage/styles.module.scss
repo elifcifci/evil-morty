@@ -22,15 +22,17 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  max-width: 700px;
 
   h1 {
+    width: 100%;
     font-family: "Orbitron", sans-serif;
     font-size: 50px;
     background-color: black;
+    text-align: center;
   }
 
   p {
+    display: none;
     font-family: "Orbitron", sans-serif;
     margin: 0;
     font-size: 24px;
@@ -47,9 +49,6 @@
   display: none;
   position: absolute;
   z-index: 4;
-  width: max-content;
-  height: max-content;
-  transition: all .5s;
 }
 
 .shakingSpaceship {
@@ -62,5 +61,17 @@
   .keyboard,
   .spaceShipWrapper {
     display: flex;
+  }
+
+  .pageTitleAndDescription {
+    max-width: 700px;
+
+    h1 {
+      text-align: left;
+    }
+    
+    p {
+      display: flex;
+    }
   }
 }
