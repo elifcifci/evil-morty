@@ -71,8 +71,8 @@ export interface IListItemInfoProps {
 }
 
 export interface IPortalProps {
-  isEvilMode?: boolean,
-  imgType?: "png" | "gif",
+  isEvilMode?: boolean;
+  imgType?: "png" | "gif";
   className?: string;
   imageSize: "xs" | "s" | "m" | "l";
 }

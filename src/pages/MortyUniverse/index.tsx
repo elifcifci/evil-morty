@@ -16,15 +16,18 @@ const MortyUniverse = ({
   const [errorStatus, setErrorStatus] = React.useState<IErrorStatus>(undefined);
 
   React.useEffect(() => {
-    getCharacters(inputValue, setIsLoading)
-      .then((data) => {
-        setErrorStatus(false);
-        setApiData(data.results);
-      })
-      .catch((err) => {
-        console.log(err);
-        setErrorStatus(err.response.status);
-      });
+    setTimeout(() => {
+      getCharacters(inputValue, setIsLoading)
+        .then((data) => {
+          setErrorStatus(false);
+          setApiData(data.results);
+        })
+        .catch((err) => {
+          console.log(err);
+          setErrorStatus(err.response.status);
+          setApiData(undefined);
+        });
+    }, 400);
   }, [inputValue]);
 
   return (

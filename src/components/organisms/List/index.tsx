@@ -27,7 +27,7 @@ const List = ({
         </div>
       ) : (
         <ul className={styles.searchItems}>
-          {apiData === undefined ? (
+          {apiData === undefined || isLoading ? (
             <div className={styles.loadingWrapper}>
               <Loading />
             </div>

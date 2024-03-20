@@ -36,13 +36,7 @@ const SeachInput = ({
           selectedItems={selectedItems}
           setSelectedItems={setSelectedItems}
         />
-        <li
-        // style={{
-        //   width: `${
-        //     inputValue.length > 0 ? inputValue.length * 8 + 15 : 0
-        //   }px`,
-        // }}
-        >
+        <li>
           <input
             ref={inputRef}
             typeof="text"
