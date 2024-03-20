@@ -1,5 +1,5 @@
 import { itemList } from "../../../constants/keyboard";
-import { IKeyItemProps } from "../../../interfaces/keyboardInterfaces";
+import { IKeyItemProps } from "../../../Interfaces/keyboardInterfaces";
 import styles from "./styles.module.scss";
 
 const KeyItem = ({ selectedKey, keyboardType, direction }: IKeyItemProps) => {

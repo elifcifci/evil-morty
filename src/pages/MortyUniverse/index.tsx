@@ -3,8 +3,8 @@ import ThemeButton from "../../components/atoms/ThemeButton";
 import Seach from "../../components/organisms/Search";
 import { getCharacters } from "../../api/morty-api";
 import { mortyUniverseInterface } from "../../Interfaces/mortyUniverseInterface";
-import { IErrorStatus } from "../../interfaces/erorInterfaces";
 import styles from "./styles.module.scss";
+import { IErrorStatus } from "../../Interfaces/erorInterfaces";
 
 const MortyUniverse = ({
   isEvilMode,
@@ -16,15 +16,18 @@ const MortyUniverse = ({
   const [errorStatus, setErrorStatus] = React.useState<IErrorStatus>(undefined);
 
   React.useEffect(() => {
-    getCharacters(inputValue, setIsLoading)
-      .then((data) => {
-        setErrorStatus(false);
-        setApiData(data.results);
-      })
-      .catch((err) => {
-        console.log(err);
-        setErrorStatus(err.response.status);
-      });
+    setTimeout(() => {
+      getCharacters(inputValue, setIsLoading)
+        .then((data) => {
+          setErrorStatus(false);
+          setApiData(data.results);
+        })
+        .catch((err) => {
+          console.log(err);
+          setErrorStatus(err.response.status);
+          setApiData(undefined);
+        });
+    }, 400);
   }, [inputValue]);
 
   return (

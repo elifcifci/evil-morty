@@ -1,4 +1,4 @@
-import { IPortalProps } from "../../../interfaces/SearchProps";
+import { IPortalProps } from "../../../Interfaces/mortyUniverseInterface";
 import styles from "./styles.module.scss";
 
 const Portal = ({

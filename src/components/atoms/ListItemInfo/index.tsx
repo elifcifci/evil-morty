@@ -1,4 +1,4 @@
-import { IListItemInfoProps } from "../../../interfaces/SearchProps";
+import { IListItemInfoProps } from "../../../Interfaces/mortyUniverseInterface";
 import styles from "./styles.module.scss";
 
 const ListItemInfo = ({

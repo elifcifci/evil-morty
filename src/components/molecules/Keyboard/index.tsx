@@ -4,7 +4,7 @@ import {
   ArrowDirection,
   LetterDirection,
   IKeyboardProps,
-} from "../../../interfaces/keyboardInterfaces";
+} from "../../../Interfaces/keyboardInterfaces";
 import KeyItem from "../../atoms/KeyboardItem";
 import styles from "./styles.module.scss";
 

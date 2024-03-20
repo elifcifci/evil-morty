@@ -5,7 +5,7 @@ import Keyboard from "../../components/molecules/Keyboard";
 import UniverseList from "../../components/molecules/UniverseList";
 import useWindowDimensions from "../../utils/useWindowDimensions";
 import { keyboardList } from "../../constants/keyboard";
-import { IUniversePosition } from "../../interfaces/universeInterfaces";
+import { IUniversePosition } from "../../Interfaces/landingPageInterfaces";
 import { handleKeyPressWithDelay } from "../../utils/handleKeyPressWithDelay";
 import styles from "./styles.module.scss";
 

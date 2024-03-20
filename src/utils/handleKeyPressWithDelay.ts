@@ -2,7 +2,7 @@ import { NavigateFunction } from "react-router-dom";
 import {
   ISpaceShipInfo,
   IUniversePosition,
-} from "../interfaces/universeInterfaces";
+} from "../Interfaces/landingPageInterfaces";
 import { chooseSpaceshipPosition } from "./chooseSpaceshipPosition";
 
 export const handleKeyPressWithDelay = (

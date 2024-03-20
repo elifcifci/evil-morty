@@ -1,4 +1,4 @@
-import { ISpaceShipProps } from "../../../interfaces/SearchProps";
+import { ISpaceShipProps } from "../../../Interfaces/mortyUniverseInterface";
 import styles from "./styles.module.scss";
 
 const SpaceShip = ({
