@@ -1,5 +1,5 @@
+import { ISelectedListProps } from "../../../Interfaces/mortyUniverseInterface";
 import SelectedItem from "../../atoms/SelectedItem";
-import { ISelectedListProps } from "../../../interfaces/SearchProps";
 
 const SelectedList = ({
   isEvilMode,

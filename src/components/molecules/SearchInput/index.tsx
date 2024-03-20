@@ -1,6 +1,6 @@
 import SelectedList from "../SelectedList";
 import { CaretDown } from "../../../../public/icons/CaretDown";
-import { ISeachInputProps } from "../../../interfaces/SearchProps";
+import { ISeachInputProps } from "../../../Interfaces/mortyUniverseInterface";
 import styles from "./searchInput.module.scss";
 
 const SeachInput = ({
@@ -36,13 +36,7 @@ const SeachInput = ({
           selectedItems={selectedItems}
           setSelectedItems={setSelectedItems}
         />
-        <li
-        // style={{
-        //   width: `${
-        //     inputValue.length > 0 ? inputValue.length * 8 + 15 : 0
-        //   }px`,
-        // }}
-        >
+        <li>
           <input
             ref={inputRef}
             typeof="text"

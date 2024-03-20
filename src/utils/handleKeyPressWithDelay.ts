@@ -2,7 +2,7 @@ import { NavigateFunction } from "react-router-dom";
 import {
   ISpaceShipInfo,
   IUniversePosition,
-} from "../interfaces/universeInterfaces";
+} from "../Interfaces/landingPageInterfaces";
 import { chooseSpaceshipPosition } from "./chooseSpaceshipPosition";
 
 export const handleKeyPressWithDelay = (
@@ -18,17 +18,21 @@ export const handleKeyPressWithDelay = (
   navigate: NavigateFunction
 ) => {
 
+  const condition = (x: number, y: number) => {
+    return (
+      x >= universePosition[0].left &&
+      x + spaceShip.width - 40 <= universePosition[0].right &&
+      height - y >= universePosition[0].top &&
+      height - y - spaceShip.height < universePosition[0].bottom
+    );
+  };
+
   setTimeout(() => {
     if (universePosition.length > 0) {
       if (key === "w" || key === "arrowup") {
         setItemPosition(
           (prev: { x: number; y: number; isReached: boolean }) => {
-            if (
-              prev.x >= universePosition[0].left &&
-              prev.x + spaceShip.width - 40 <= universePosition[0].right &&
-              height - prev.y - spaceShip.height >= universePosition[0].top &&
-              height - prev.y < universePosition[0].bottom
-            ) {
+            if (condition(prev.x, prev.y)) {
               setIsHoverOnUniverse(true);
             } else {
               setIsHoverOnUniverse(false);
@@ -50,12 +54,7 @@ export const handleKeyPressWithDelay = (
       } else if (key === "s" || key === "arrowdown") {
         setItemPosition(
           (prev: { x: number; y: number; isReached: boolean }) => {
-            if (
-              prev.x >= universePosition[0].left &&
-              prev.x + spaceShip.width - 40 <= universePosition[0].right &&
-              height - prev.y - spaceShip.height >= universePosition[0].top &&
-              height - prev.y - spaceShip.height < universePosition[0].bottom
-            ) {
+            if (condition(prev.x, prev.y)) {
               setIsHoverOnUniverse(true);
             } else {
               setIsHoverOnUniverse(false);
@@ -76,12 +75,7 @@ export const handleKeyPressWithDelay = (
       } else if (key === "d" || key === "arrowright") {
         setItemPosition(
           (prev: { x: number; y: number; isReached: boolean }) => {
-            if (
-              prev.x >= universePosition[0].left &&
-              prev.x + spaceShip.width - 40 <= universePosition[0].right &&
-              height - prev.y - spaceShip.height >= universePosition[0].top &&
-              height - prev.y - spaceShip.height < universePosition[0].bottom
-            ) {
+            if (condition(prev.x, prev.y)) {
               setIsHoverOnUniverse(true);
             } else {
               setIsHoverOnUniverse(false);
@@ -102,12 +96,7 @@ export const handleKeyPressWithDelay = (
       } else if (key === "a" || key === "arrowleft") {
         setItemPosition(
           (prev: { x: number; y: number; isReached: boolean }) => {
-            if (
-              prev.x >= universePosition[0].left &&
-              prev.x + spaceShip.width - 40 <= universePosition[0].right &&
-              height - prev.y - spaceShip.height >= universePosition[0].top &&
-              height - prev.y - spaceShip.height < universePosition[0].bottom
-            ) {
+            if (condition(prev.x, prev.y)) {
               setIsHoverOnUniverse(true);
             } else {
               setIsHoverOnUniverse(false);
@@ -129,12 +118,7 @@ export const handleKeyPressWithDelay = (
         setItemPosition(
           (prev: { x: number; y: number; isReached: boolean }) => {
             // prev.y gives distance from page bottom. For comparison we should find distance top between the item and the page top
-            if (
-              prev.x >= universePosition[0].left &&
-              prev.x + spaceShip.width - 40 <= universePosition[0].right &&
-              height - prev.y - spaceShip.height >= universePosition[0].top &&
-              height - prev.y - spaceShip.height < universePosition[0].bottom
-            ) {
+            if (condition(prev.x, prev.y)) {
               setIsHoverOnUniverse(false);
               navigate(universePosition[0].link);
             }

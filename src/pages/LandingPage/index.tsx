@@ -5,7 +5,7 @@ import Keyboard from "../../components/molecules/Keyboard";
 import UniverseList from "../../components/molecules/UniverseList";
 import useWindowDimensions from "../../utils/useWindowDimensions";
 import { keyboardList } from "../../constants/keyboard";
-import { IUniversePosition } from "../../interfaces/universeInterfaces";
+import { IUniversePosition } from "../../Interfaces/landingPageInterfaces";
 import { handleKeyPressWithDelay } from "../../utils/handleKeyPressWithDelay";
 import styles from "./styles.module.scss";
 
@@ -16,7 +16,7 @@ const LandingPage = ({}) => {
   const spaceShip = {
     width: spaceShipRef.current?.scrollWidth ?? 200,
     height: spaceShipRef.current?.scrollHeight ?? 114,
-    speed: 10,
+    speed: 3,
     movementBoundary: {
       // -20 is for page padding
       x: width - (spaceShipRef.current?.scrollWidth ?? 220) - 20,
@@ -84,7 +84,11 @@ const LandingPage = ({}) => {
   return (
     <div className={`pageWrapper ${styles.mainPageContainer}`}>
       <div className={styles.pageTitleAndDescription}>
-        <h1>Drive the Space Cruiser!</h1>
+        <h1>
+          {width >= 1024
+            ? "Drive the Space Cruiser!"
+            : "Discover a new Universe!"}
+        </h1>
         <p>Use the directional keys to travel to different universes.</p>
       </div>
 
@@ -93,7 +97,7 @@ const LandingPage = ({}) => {
         className={`${styles.spaceShipWrapper} ${
           isShaking ? styles.shakingSpaceship : ""
         }`}
-        imageSize="l"
+        imageSize="m"
         spaceShipRef={spaceShipRef}
       />
       <UniverseList

@@ -4,7 +4,7 @@ import {
   IUniverseItem,
   IUniverseListProps,
   IUniverseRef,
-} from "../../../interfaces/universeInterfaces";
+} from "../../../Interfaces/landingPageInterfaces";
 import UniverseItem from "../UniverseItem";
 import { getUniverseBounding } from "../../../utils/getUniverseBounding";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import ListItemInfo from "../../atoms/ListItemInfo";
-import { ISeachListItemProps } from "../../../interfaces/SearchProps";
 import styles from "./searchItem.module.scss";
+import { ISeachListItemProps } from "../../../Interfaces/mortyUniverseInterface";
 
 const ListItem = ({
   handleClick,

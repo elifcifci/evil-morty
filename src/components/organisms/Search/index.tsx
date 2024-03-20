@@ -1,8 +1,8 @@
 import React from "react";
 import SeachInput from "../../molecules/SearchInput/index";
 import List from "../List/index";
-import { ISearchProps } from "../../../interfaces/SearchProps";
 import styles from "./search.module.scss";
+import { ISearchProps } from "../../../Interfaces/mortyUniverseInterface";
 
 const Seach = ({
   isLoading,

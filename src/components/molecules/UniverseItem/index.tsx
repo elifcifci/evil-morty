@@ -1,4 +1,4 @@
-import { IUniverseItemProps } from "../../../interfaces/universeInterfaces";
+import { IUniverseItemProps } from "../../../Interfaces/landingPageInterfaces";
 import Portal from "../../atoms/Portal";
 import styles from "./styles.module.scss";
 
@@ -28,7 +28,7 @@ const UniverseItem = ({
         <p role="universe-coming-soon">COMING SOON</p>
       )}
       <img role="universe-type" src={img.src} alt={img.alt} />
-      <Portal className={styles.portal} imageSize="l" />
+      <Portal imageSize="l" />
     </li>
   );
 };

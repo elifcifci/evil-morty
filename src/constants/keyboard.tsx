@@ -3,7 +3,7 @@ import { ArrowLeft } from "../../public/icons/ArrowLeft";
 import { ArrowRight } from "../../public/icons/ArrowRight";
 import { ArrowUp } from "../../public/icons/ArrowUp";
 import EnterButton from "../components/atoms/EnterButton";
-import { IItemList, IKeyListProps } from "../interfaces/keyboardInterfaces";
+import { IItemList, IKeyListProps } from "../Interfaces/keyboardInterfaces.ts";
 
 export const keyboardList: IKeyListProps = {
   letters: ["a", "w", "s", "d"],
