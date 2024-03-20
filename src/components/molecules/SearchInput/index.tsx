@@ -1,6 +1,6 @@
 import SelectedList from "../SelectedList";
 import { CaretDown } from "../../../../public/icons/CaretDown";
-import { ISeachInputProps } from "../../../interfaces/SearchProps";
+import { ISeachInputProps } from "../../../Interfaces/mortyUniverseInterface";
 import styles from "./searchInput.module.scss";
 
 const SeachInput = ({

@@ -1,4 +1,4 @@
-import { IUniverseItemProps } from "../../../interfaces/universeInterfaces";
+import { IUniverseItemProps } from "../../../Interfaces/landingPageInterfaces";
 import Portal from "../../atoms/Portal";
 import styles from "./styles.module.scss";
 

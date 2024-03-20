@@ -1,4 +1,4 @@
-import {IErrorProps} from "../../../interfaces/erorInterfaces"
+import { IErrorProps } from "../../../Interfaces/erorInterfaces";
 import styles from "./styles.module.scss";
 
 const ErrorText = ({ errorStatus }: IErrorProps) => {

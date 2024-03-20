@@ -1,6 +1,6 @@
 import { XMark } from "../../../../public/icons/XMark";
 import styles from "./styles.module.scss";
-import { ISeachItemProps } from "../../../interfaces/SearchProps";
+import { ISelectedItemProps } from "../../../Interfaces/mortyUniverseInterface";
 
 const SelectedItem = ({
   isEvilMode,
@@ -8,7 +8,7 @@ const SelectedItem = ({
   value,
   selectedItems,
   setSelectedItems,
-}: ISeachItemProps) => {
+}: ISelectedItemProps) => {
   let removedItemsCheckbox: HTMLInputElement;
 
   const handleRemove = () => {

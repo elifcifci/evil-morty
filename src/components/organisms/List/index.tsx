@@ -1,9 +1,9 @@
 import ListItem from "../../molecules/ListItem/index";
-import { IListProps } from "../../../interfaces/SearchProps";
-import { IAllCharacterProp } from "../../../interfaces/apiInterfaces";
 import Loading from "../../../../public/icons/Loading";
 import styles from "./styles.module.scss";
 import ErrorText from "../../molecules/ErrorText";
+import { IListProps } from "../../../Interfaces/mortyUniverseInterface";
+import { IAllCharacterProp } from "../../../Interfaces/apiInterfaces";
 
 const List = ({
   handleClick,

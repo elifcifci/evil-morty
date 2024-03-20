@@ -3,8 +3,8 @@ import ThemeButton from "../../components/atoms/ThemeButton";
 import Seach from "../../components/organisms/Search";
 import { getCharacters } from "../../api/morty-api";
 import { mortyUniverseInterface } from "../../Interfaces/mortyUniverseInterface";
-import { IErrorStatus } from "../../interfaces/erorInterfaces";
 import styles from "./styles.module.scss";
+import { IErrorStatus } from "../../Interfaces/erorInterfaces";
 
 const MortyUniverse = ({
   isEvilMode,

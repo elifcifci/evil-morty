@@ -1,4 +1,4 @@
-import { IUniverseItem } from "../interfaces/universeInterfaces";
+import { IUniverseItem } from "../Interfaces/landingPageInterfaces";
 
 export const universeList: IUniverseItem[] = [
   {

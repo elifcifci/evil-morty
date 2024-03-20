@@ -1,6 +1,6 @@
 import React from "react";
-import { IThemeButtonProps } from "../../../interfaces/SearchProps";
 import styles from "./styles.module.scss";
+import { IThemeButtonProps } from "../../../Interfaces/mortyUniverseInterface";
 
 const ThemeButton = ({
   isEvilMode,
