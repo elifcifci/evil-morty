@@ -1,23 +1,23 @@
 import React from "react";
 import styles from "./styles.module.scss";
-import { IThemeButtonProps } from "../../../Interfaces/mortyUniverseInterface";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../app/store";
 import { updateTheme } from "../../../features/theme/themeSlice";
+import {updateInput} from "../../../features/inputValue/inputValueSlice";
 
-const ThemeButton = ({ setInputValue }: IThemeButtonProps) => {
+const ThemeButton = () => {
   const isEvilMode = useSelector((state: RootState) => state.theme.isEvilMode);
   const dispatch = useDispatch();
 
   const handleClick = () => {
     dispatch(updateTheme());
-    setInputValue("");
+    dispatch(updateInput(""))
   };
 
   const handlKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
     if (e.code === "Enter") {
       dispatch(updateTheme());
-      setInputValue("");
+      dispatch(updateInput(""))
     }
   };
 

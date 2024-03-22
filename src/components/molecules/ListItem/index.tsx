@@ -11,7 +11,6 @@ const ListItem = ({
   name,
   image,
   episodes,
-  inputValue,
   selectedItems,
   setSelectedItems,
 }: ISeachListItemProps) => {
@@ -51,15 +50,10 @@ const ListItem = ({
         name={`checkbox-${id}`}
         id={id}
         value={name}
-        defaultChecked={!!selectedItems.find((item)=> item.id === id)}
+        defaultChecked={!!selectedItems.find((item) => item.id === id)}
       />
 
-      <ListItemInfo
-        name={name}
-        inputValue={inputValue}
-        episodes={episodes}
-        image={image}
-      />
+      <ListItemInfo name={name} episodes={episodes} image={image} />
     </li>
   );
 };

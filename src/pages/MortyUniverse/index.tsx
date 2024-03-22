@@ -10,9 +10,11 @@ import { RootState } from "../../app/store";
 const MortyUniverse = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [apiData, setApiData] = React.useState();
-  const [inputValue, setInputValue] = React.useState("");
   const [errorStatus, setErrorStatus] = React.useState<IErrorStatus>(undefined);
   const isEvilMode = useSelector((state: RootState) => state.theme.isEvilMode);
+  const inputValue = useSelector(
+    (state: RootState) => state.inputValue.inputValue
+  );
 
   React.useEffect(() => {
     setTimeout(() => {
@@ -40,12 +42,10 @@ const MortyUniverse = () => {
         />
       )}
 
-      <ThemeButton setInputValue={setInputValue} />
+      <ThemeButton />
 
       <Seach
         isLoading={isLoading}
-        inputValue={inputValue}
-        setInputValue={setInputValue}
         errorStatus={errorStatus}
         setErrorStatus={setErrorStatus}
         apiData={apiData}

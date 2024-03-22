@@ -12,7 +12,6 @@ const List = ({
   isLoading,
   errorStatus,
   apiData,
-  inputValue,
   selectedItems,
   setSelectedItems,
 }: IListProps) => {
@@ -42,7 +41,6 @@ const List = ({
                   key={`${obj.id}-${obj.name}`}
                   selectedItems={selectedItems}
                   setSelectedItems={setSelectedItems}
-                  inputValue={inputValue}
                   id={obj.id.toString()}
                   name={obj.name.trim()}
                   image={obj.image}

@@ -24,7 +24,6 @@ export interface ISeachListItemProps {
   episodes: number;
   name: string;
   image: string;
-  inputValue: string;
   selectedItems: { id: string; name: string }[];
   setSelectedItems: React.Dispatch<
     React.SetStateAction<{ id: string; name: string }[]>
@@ -37,8 +36,6 @@ export interface ISeachInputProps {
   setErrorStatus: React.Dispatch<
     React.SetStateAction<undefined | number | boolean>
   >;
-  inputValue: string;
-  setInputValue: React.Dispatch<React.SetStateAction<string>>;
   selectedItems: { id: string; name: string }[];
   setSelectedItems: React.Dispatch<
     React.SetStateAction<{ id: string; name: string }[]>
@@ -50,7 +47,6 @@ export interface IListProps {
   isLoading: boolean;
   errorStatus: undefined | boolean | number;
   apiData: undefined | IAllCharacterProp[];
-  inputValue: string;
   selectedItems: { id: string; name: string }[];
   setSelectedItems: React.Dispatch<
     React.SetStateAction<{ id: string; name: string }[]>
@@ -59,7 +55,6 @@ export interface IListProps {
 
 export interface IListItemInfoProps {
   name: string;
-  inputValue: string;
   episodes: number;
   image: string;
 }
@@ -80,15 +75,9 @@ export interface ISpaceShipProps {
 
 export interface ISearchProps {
   isLoading: boolean;
-  inputValue: string;
-  setInputValue: React.Dispatch<React.SetStateAction<string>>;
   errorStatus: IErrorStatus;
   setErrorStatus: React.Dispatch<
     React.SetStateAction<undefined | number | boolean>
   >;
   apiData: undefined | IAllCharacterProp[];
-}
-
-export interface IThemeButtonProps {
-  setInputValue: React.Dispatch<React.SetStateAction<string>>;
 }

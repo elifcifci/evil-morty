@@ -3,17 +3,15 @@ import { RootState } from "../../../app/store";
 import styles from "./styles.module.scss";
 import { useSelector } from "react-redux";
 
-const ListItemInfo = ({
-  name,
-  episodes,
-  inputValue,
-  image,
-}: IListItemInfoProps) => {
+const ListItemInfo = ({ name, episodes, image }: IListItemInfoProps) => {
+  const inputValue = useSelector(
+    (state: RootState) => state.inputValue.inputValue
+  );
+  const isEvilMode = useSelector((state: RootState) => state.theme.isEvilMode);
   const firstIndexOfSerched = name
     .toLowerCase()
     .indexOf(inputValue.toLowerCase());
   const lastIndexOfSerched = firstIndexOfSerched + inputValue.length;
-  const isEvilMode = useSelector((state: RootState) => state.theme.isEvilMode);
 
   return (
     <>

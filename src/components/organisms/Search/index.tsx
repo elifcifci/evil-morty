@@ -8,8 +8,6 @@ import { RootState } from "../../../app/store";
 
 const Seach = ({
   isLoading,
-  inputValue,
-  setInputValue,
   apiData,
   errorStatus,
   setErrorStatus,
@@ -47,8 +45,6 @@ const Seach = ({
           ulRef={ulRef}
           inputRef={inputRef}
           setErrorStatus={setErrorStatus}
-          inputValue={inputValue}
-          setInputValue={setInputValue}
           selectedItems={selectedItems}
           setSelectedItems={setSelectedItems}
         />
@@ -58,7 +54,6 @@ const Seach = ({
         isLoading={isLoading}
         errorStatus={errorStatus}
         apiData={apiData}
-        inputValue={inputValue}
         selectedItems={selectedItems}
         setSelectedItems={setSelectedItems}
       />
