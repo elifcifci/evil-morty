@@ -2,18 +2,17 @@ import React from "react";
 import ThemeButton from "../../components/atoms/ThemeButton";
 import Seach from "../../components/organisms/Search";
 import { getCharacters } from "../../api/morty-api";
-import { mortyUniverseInterface } from "../../Interfaces/mortyUniverseInterface";
 import styles from "./styles.module.scss";
 import { IErrorStatus } from "../../Interfaces/erorInterfaces";
+import { useSelector } from "react-redux";
+import { RootState } from "../../app/store";
 
-const MortyUniverse = ({
-  isEvilMode,
-  setIsEvilMode,
-}: mortyUniverseInterface) => {
+const MortyUniverse = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [apiData, setApiData] = React.useState();
   const [inputValue, setInputValue] = React.useState("");
   const [errorStatus, setErrorStatus] = React.useState<IErrorStatus>(undefined);
+  const isEvilMode = useSelector((state: RootState) => state.theme.isEvilMode);
 
   React.useEffect(() => {
     setTimeout(() => {
@@ -41,17 +40,12 @@ const MortyUniverse = ({
         />
       )}
 
-      <ThemeButton
-        isEvilMode={isEvilMode}
-        setIsEvilMode={setIsEvilMode}
-        setInputValue={setInputValue}
-      />
+      <ThemeButton setInputValue={setInputValue} />
 
       <Seach
         isLoading={isLoading}
         inputValue={inputValue}
         setInputValue={setInputValue}
-        isEvilMode={isEvilMode}
         errorStatus={errorStatus}
         setErrorStatus={setErrorStatus}
         apiData={apiData}

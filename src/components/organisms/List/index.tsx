@@ -4,6 +4,8 @@ import styles from "./styles.module.scss";
 import ErrorText from "../../molecules/ErrorText";
 import { IListProps } from "../../../Interfaces/mortyUniverseInterface";
 import { IAllCharacterProp } from "../../../Interfaces/apiInterfaces";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../app/store";
 
 const List = ({
   handleClick,
@@ -11,10 +13,11 @@ const List = ({
   errorStatus,
   apiData,
   inputValue,
-  isEvilMode,
   selectedItems,
   setSelectedItems,
 }: IListProps) => {
+  const isEvilMode = useSelector((state: RootState) => state.theme.isEvilMode);
+
   return (
     <div
       className={`${styles.listWrapper} ${isEvilMode ? styles.evilTheme : ""}`}
@@ -36,7 +39,6 @@ const List = ({
               return (
                 <ListItem
                   handleClick={handleClick}
-                  isEvilMode={isEvilMode}
                   key={`${obj.id}-${obj.name}`}
                   selectedItems={selectedItems}
                   setSelectedItems={setSelectedItems}

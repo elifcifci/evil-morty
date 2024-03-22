@@ -1,20 +1,22 @@
 import React from "react";
 import styles from "./styles.module.scss";
 import { IThemeButtonProps } from "../../../Interfaces/mortyUniverseInterface";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../../app/store";
+import { updateTheme } from "../../../features/theme/themeSlice";
 
-const ThemeButton = ({
-  isEvilMode,
-  setIsEvilMode,
-  setInputValue,
-}: IThemeButtonProps) => {
+const ThemeButton = ({ setInputValue }: IThemeButtonProps) => {
+  const isEvilMode = useSelector((state: RootState) => state.theme.isEvilMode);
+  const dispatch = useDispatch();
+
   const handleClick = () => {
-    setIsEvilMode((prew: boolean) => !prew);
+    dispatch(updateTheme());
     setInputValue("");
   };
 
   const handlKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
     if (e.code === "Enter") {
-      setIsEvilMode((prew: boolean) => !prew);
+      dispatch(updateTheme());
       setInputValue("");
     }
   };
@@ -29,11 +31,7 @@ const ThemeButton = ({
         onClick={handleClick}
       >
         <div
-          className={
-            isEvilMode
-              ? styles.evilHead
-              : styles.mortyHead
-          }
+          className={isEvilMode ? styles.evilHead : styles.mortyHead}
           role="img-wrapper"
         >
           <img src="/images/evil-head.png" />

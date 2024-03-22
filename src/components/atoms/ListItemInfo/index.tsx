@@ -1,8 +1,9 @@
 import { IListItemInfoProps } from "../../../Interfaces/mortyUniverseInterface";
+import { RootState } from "../../../app/store";
 import styles from "./styles.module.scss";
+import { useSelector } from "react-redux";
 
 const ListItemInfo = ({
-  isEvilMode,
   name,
   episodes,
   inputValue,
@@ -12,6 +13,7 @@ const ListItemInfo = ({
     .toLowerCase()
     .indexOf(inputValue.toLowerCase());
   const lastIndexOfSerched = firstIndexOfSerched + inputValue.length;
+  const isEvilMode = useSelector((state: RootState) => state.theme.isEvilMode);
 
   return (
     <>

@@ -2,10 +2,11 @@ import React from "react";
 import ListItemInfo from "../../atoms/ListItemInfo";
 import styles from "./searchItem.module.scss";
 import { ISeachListItemProps } from "../../../Interfaces/mortyUniverseInterface";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../app/store";
 
 const ListItem = ({
   handleClick,
-  isEvilMode,
   id,
   name,
   image,
@@ -15,6 +16,7 @@ const ListItem = ({
   setSelectedItems,
 }: ISeachListItemProps) => {
   const inputRef = React.useRef<HTMLInputElement>(null);
+  const isEvilMode = useSelector((state: RootState) => state.theme.isEvilMode);
 
   const handleKeyDownAndClick = () => {
     handleClick();
@@ -53,7 +55,6 @@ const ListItem = ({
       />
 
       <ListItemInfo
-        isEvilMode={isEvilMode}
         name={name}
         inputValue={inputValue}
         episodes={episodes}

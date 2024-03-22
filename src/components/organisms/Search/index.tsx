@@ -3,12 +3,13 @@ import SeachInput from "../../molecules/SearchInput/index";
 import List from "../List/index";
 import styles from "./search.module.scss";
 import { ISearchProps } from "../../../Interfaces/mortyUniverseInterface";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../app/store";
 
 const Seach = ({
   isLoading,
   inputValue,
   setInputValue,
-  isEvilMode,
   apiData,
   errorStatus,
   setErrorStatus,
@@ -18,6 +19,7 @@ const Seach = ({
   >([]);
   const inputRef = React.useRef<HTMLInputElement>(null);
   const ulRef = React.useRef<HTMLUListElement>(null);
+  const isEvilMode = useSelector((state: RootState) => state.theme.isEvilMode);
 
   const handleClick = () => {
     if (inputRef.current !== null) {
@@ -25,7 +27,7 @@ const Seach = ({
       ulRef.current?.scrollIntoView({
         block: "end",
         behavior: "smooth",
-      })
+      });
     }
   };
 
@@ -45,7 +47,6 @@ const Seach = ({
           ulRef={ulRef}
           inputRef={inputRef}
           setErrorStatus={setErrorStatus}
-          isEvilMode={isEvilMode}
           inputValue={inputValue}
           setInputValue={setInputValue}
           selectedItems={selectedItems}
@@ -58,7 +59,6 @@ const Seach = ({
         errorStatus={errorStatus}
         apiData={apiData}
         inputValue={inputValue}
-        isEvilMode={isEvilMode}
         selectedItems={selectedItems}
         setSelectedItems={setSelectedItems}
       />

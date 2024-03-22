@@ -2,13 +2,7 @@ import React from "react";
 import { IAllCharacterProp } from "./apiInterfaces.ts";
 import { IErrorStatus } from "./erorInterfaces.ts";
 
-export interface mortyUniverseInterface {
-  isEvilMode: boolean;
-  setIsEvilMode: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
 export interface ISelectedListProps {
-  isEvilMode: boolean;
   selectedItems: { id: string; name: string }[];
   setSelectedItems: React.Dispatch<
     React.SetStateAction<{ id: string; name: string }[]>
@@ -16,7 +10,6 @@ export interface ISelectedListProps {
 }
 
 export interface ISelectedItemProps {
-  isEvilMode: boolean;
   id: string;
   value: string;
   selectedItems: { id: string; name: string }[];
@@ -27,7 +20,6 @@ export interface ISelectedItemProps {
 
 export interface ISeachListItemProps {
   handleClick: () => void;
-  isEvilMode: boolean;
   id: string;
   episodes: number;
   name: string;
@@ -45,7 +37,6 @@ export interface ISeachInputProps {
   setErrorStatus: React.Dispatch<
     React.SetStateAction<undefined | number | boolean>
   >;
-  isEvilMode: boolean;
   inputValue: string;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
   selectedItems: { id: string; name: string }[];
@@ -60,7 +51,6 @@ export interface IListProps {
   errorStatus: undefined | boolean | number;
   apiData: undefined | IAllCharacterProp[];
   inputValue: string;
-  isEvilMode: boolean;
   selectedItems: { id: string; name: string }[];
   setSelectedItems: React.Dispatch<
     React.SetStateAction<{ id: string; name: string }[]>
@@ -68,7 +58,6 @@ export interface IListProps {
 }
 
 export interface IListItemInfoProps {
-  isEvilMode: boolean;
   name: string;
   inputValue: string;
   episodes: number;
@@ -93,7 +82,6 @@ export interface ISearchProps {
   isLoading: boolean;
   inputValue: string;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
-  isEvilMode: boolean;
   errorStatus: IErrorStatus;
   setErrorStatus: React.Dispatch<
     React.SetStateAction<undefined | number | boolean>
@@ -102,7 +90,5 @@ export interface ISearchProps {
 }
 
 export interface IThemeButtonProps {
-  isEvilMode: boolean;
-  setIsEvilMode: React.Dispatch<React.SetStateAction<boolean>>;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
 }
