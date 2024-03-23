@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { IUniverseItemProps } from "../../../Interfaces/landingPageInterfaces";
 import Portal from "../../atoms/Portal";
 import styles from "./styles.module.scss";
@@ -9,12 +10,18 @@ const UniverseItem = ({
   link,
   id,
 }: IUniverseItemProps) => {
+  const navigate = useNavigate();
 
   return (
     <li
+      onClick={() => {
+        if (link) {
+          navigate(link);
+        }
+      }}
       ref={referance}
       id={id}
-      className={`anchorParent ${styles.itemWrapper} ${
+      className={`${styles.itemWrapper} ${
         link ? "" : styles.disableUniverse
       } ${
         isHoverOnUniverse && id === "universe-rick-and-morty"
@@ -22,11 +29,7 @@ const UniverseItem = ({
           : ""
       }`}
     >
-      {link ? (
-        <a href={link} />
-      ) : (
-        <p role="universe-coming-soon">COMING SOON</p>
-      )}
+      {link && <p role="universe-coming-soon">COMING SOON</p>}
       <img role="universe-type" src={img.src} alt={img.alt} />
       <Portal imageSize="l" />
     </li>
