@@ -2,7 +2,7 @@
 
 ## Project Description
 
-This website contains 
+This website contains web pages that you can visit by clicking on portals or by driving the spaceship with the keyboard.
 
 #### Used Technologies:
 
@@ -22,7 +22,7 @@ This website contains
 
 ## What does the project look like?
 
-- To see the project click [here]()
+- To see the project click [here](https://evil-morty.vercel.app/)
 
 ![Project View-1](./public/images/landing-page.png)
 
