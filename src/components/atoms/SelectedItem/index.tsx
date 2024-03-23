@@ -1,15 +1,17 @@
 import { XMark } from "../../../../public/icons/XMark";
 import styles from "./styles.module.scss";
 import { ISelectedItemProps } from "../../../Interfaces/mortyUniverseInterface";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../app/store";
 
 const SelectedItem = ({
-  isEvilMode,
   id,
   value,
   selectedItems,
   setSelectedItems,
 }: ISelectedItemProps) => {
   let removedItemsCheckbox: HTMLInputElement;
+  const isEvilMode = useSelector((state: RootState) => state.theme.isEvilMode);
 
   const handleRemove = () => {
     setSelectedItems(selectedItems.filter((item) => item.id != id));

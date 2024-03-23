@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import Portal from "../Portal";
 import { IHomepageButtonProps } from "../../../Interfaces/atomInterfaces";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../app/store";
 import styles from "./styles.module.scss";
 
-const HomepageButton = ({
-  isEvilMode,
-  className,
-}: IHomepageButtonProps) => {
+const HomepageButton = ({ className }: IHomepageButtonProps) => {
   const navigate = useNavigate();
+  const isEvilMode = useSelector((state: RootState) => state.theme.isEvilMode);
 
   return (
     <button
@@ -22,7 +22,12 @@ const HomepageButton = ({
         }
       }}
     >
-      <Portal imgType={"png"} isEvilMode={isEvilMode} className={styles.portal} imageSize="xs"/>
+      <Portal
+        imgType={"png"}
+        isEvilMode={isEvilMode}
+        className={styles.portal}
+        imageSize="xs"
+      />
       <p>Go back</p>
     </button>
   );

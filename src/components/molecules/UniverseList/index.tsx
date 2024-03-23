@@ -6,31 +6,36 @@ import {
   IUniverseRef,
 } from "../../../Interfaces/landingPageInterfaces";
 import UniverseItem from "../UniverseItem";
-import { getUniverseBounding } from "../../../utils/getUniverseBounding";
 
 const UniverseList = ({
   isHoverOnUniverse,
   setUniversePosition,
 }: IUniverseListProps) => {
-
   const universeRef: IUniverseRef = {
     mortyUniverse: React.useRef<HTMLLIElement>(null),
     pokemonUniverse: React.useRef<HTMLLIElement>(null),
     sailorMoonUniverse: React.useRef<HTMLLIElement>(null),
   };
-  
+
   React.useEffect(() => {
     if (
-      universeRef.mortyUniverse.current !== null &&
-      universeRef.pokemonUniverse.current !== null &&
-      universeRef.sailorMoonUniverse.current !== null
+      universeRef.mortyUniverse.current &&
+      universeRef.pokemonUniverse.current &&
+      universeRef.sailorMoonUniverse.current
     ) {
+      const mortyUniverseBounds =
+        universeRef.mortyUniverse.current.getBoundingClientRect();
 
-      setUniversePosition(
-        Object.keys(universeRef).map((universe) =>
-          getUniverseBounding(universeRef[universe])
-        )
-      );
+      setUniversePosition([
+        {
+          id: universeRef.mortyUniverse.current.id,
+          top: mortyUniverseBounds.top,
+          bottom: mortyUniverseBounds.bottom,
+          left: mortyUniverseBounds.left,
+          right: mortyUniverseBounds.right,
+          link: universeList[0].link,
+        },
+      ]);
     }
   }, [
     universeRef.mortyUniverse.current,

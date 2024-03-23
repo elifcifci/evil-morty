@@ -1,8 +1,11 @@
-import { headerInterface } from "../../../Interfaces/headerInterfaces";
+import { useSelector } from "react-redux";
 import HomepageButton from "../../atoms/HomepageButton";
 import styles from "./styles.module.scss";
+import { RootState } from "../../../app/store";
 
-const Header = ({ isEvilMode }: headerInterface) => {
+const Header = () => {
+  const isEvilMode = useSelector((state: RootState) => state.theme.isEvilMode);
+
   return (
     <div className={styles.header}>
       <div className={styles.innerWrapper}>
@@ -30,10 +33,7 @@ const Header = ({ isEvilMode }: headerInterface) => {
           )}
         </div>
 
-        <HomepageButton
-          className={styles.homepageButton}
-          isEvilMode={isEvilMode}
-        />
+        <HomepageButton className={styles.homepageButton} />
       </div>
     </div>
   );

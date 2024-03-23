@@ -15,12 +15,12 @@ export interface IUniverseItemProps {
 }
 
 export interface IUniversePosition {
-  id: string | undefined;
-  left: number | undefined;
-  right: number | undefined;
-  top: number | undefined;
-  bottom: number | undefined;
-  link: string | undefined;
+  id: string;
+  left: number;
+  right: number;
+  top: number;
+  bottom: number;
+  link: string;
 }
 
 export interface IUniverseListProps {

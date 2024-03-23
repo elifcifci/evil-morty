@@ -1,7 +1,9 @@
-import { IErrorProps } from "../../../Interfaces/erorInterfaces";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../app/store";
 import styles from "./styles.module.scss";
 
-const ErrorText = ({ errorStatus }: IErrorProps) => {
+const ErrorText = () => {
+  const errorStatus = useSelector((state: RootState) => state.mortyApi.errorStatus)
 
   return (
     <div className={styles.errorWrapper}>
