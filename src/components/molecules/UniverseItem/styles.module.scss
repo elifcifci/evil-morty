@@ -5,7 +5,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 100px;
-
+  position: relative;
+  
   [role="universe-type"],
   [role="universe-coming-soon"] {
     position: absolute;

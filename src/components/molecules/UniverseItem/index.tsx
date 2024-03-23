@@ -29,7 +29,7 @@ const UniverseItem = ({
           : ""
       }`}
     >
-      {link && <p role="universe-coming-soon">COMING SOON</p>}
+      {!link && <p role="universe-coming-soon">COMING SOON</p>}
       <img role="universe-type" src={img.src} alt={img.alt} />
       <Portal imageSize="l" />
     </li>
