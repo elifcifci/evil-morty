@@ -10,8 +10,8 @@ const ListItemInfo = ({ name, episodes, image }: IListItemInfoProps) => {
   const isEvilMode = useSelector((state: RootState) => state.theme.isEvilMode);
   const firstIndexOfSerched = name
     .toLowerCase()
-    .indexOf(inputValue.toLowerCase());
-  const lastIndexOfSerched = firstIndexOfSerched + inputValue.length;
+    .indexOf(inputValue.trim().toLowerCase());
+  const lastIndexOfSerched = firstIndexOfSerched + inputValue.trim().length;
 
   return (
     <>
