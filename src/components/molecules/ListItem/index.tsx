@@ -2,19 +2,20 @@ import React from "react";
 import ListItemInfo from "../../atoms/ListItemInfo";
 import styles from "./searchItem.module.scss";
 import { ISeachListItemProps } from "../../../Interfaces/mortyUniverseInterface";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../app/store";
 
 const ListItem = ({
   handleClick,
-  isEvilMode,
   id,
   name,
   image,
   episodes,
-  inputValue,
   selectedItems,
   setSelectedItems,
 }: ISeachListItemProps) => {
   const inputRef = React.useRef<HTMLInputElement>(null);
+  const isEvilMode = useSelector((state: RootState) => state.theme.isEvilMode);
 
   const handleKeyDownAndClick = () => {
     handleClick();
@@ -49,16 +50,10 @@ const ListItem = ({
         name={`checkbox-${id}`}
         id={id}
         value={name}
-        defaultChecked={!!selectedItems.find((item)=> item.id === id)}
+        defaultChecked={!!selectedItems.find((item) => item.id === id)}
       />
 
-      <ListItemInfo
-        isEvilMode={isEvilMode}
-        name={name}
-        inputValue={inputValue}
-        episodes={episodes}
-        image={image}
-      />
+      <ListItemInfo name={name} episodes={episodes} image={image} />
     </li>
   );
 };

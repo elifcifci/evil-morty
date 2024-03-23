@@ -2,17 +2,22 @@ import SelectedList from "../SelectedList";
 import { CaretDown } from "../../../../public/icons/CaretDown";
 import { ISeachInputProps } from "../../../Interfaces/mortyUniverseInterface";
 import styles from "./searchInput.module.scss";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../../app/store";
+import { updateInput } from "../../../features/inputValue/inputValueSlice";
 
 const SeachInput = ({
   ulRef,
   inputRef,
-  setErrorStatus,
-  isEvilMode,
-  inputValue,
-  setInputValue,
   selectedItems,
   setSelectedItems,
 }: ISeachInputProps) => {
+  const isEvilMode = useSelector((state: RootState) => state.theme.isEvilMode);
+  const inputValue = useSelector(
+    (state: RootState) => state.inputValue.inputValue
+  );
+  const dispatch = useDispatch();
+
   const handleClick = () => {
     if (inputRef.current !== null) {
       inputRef.current.focus();
@@ -20,8 +25,7 @@ const SeachInput = ({
   };
 
   const handleChange = (e: any) => {
-    setInputValue(e.target.value.toString());
-    setErrorStatus(undefined);
+    dispatch(updateInput(e.target.value.toString()));
   };
 
   return (
@@ -32,7 +36,6 @@ const SeachInput = ({
     >
       <ul ref={ulRef} className={styles.list}>
         <SelectedList
-          isEvilMode={isEvilMode}
           selectedItems={selectedItems}
           setSelectedItems={setSelectedItems}
         />
