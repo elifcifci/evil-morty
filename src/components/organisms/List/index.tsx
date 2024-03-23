@@ -7,34 +7,28 @@ import { IAllCharacterProp } from "../../../Interfaces/apiInterfaces";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../app/store";
 
-const List = ({
-  handleClick,
-  isLoading,
-  errorStatus,
-  apiData,
-  selectedItems,
-  setSelectedItems,
-}: IListProps) => {
+const List = ({ handleClick, selectedItems, setSelectedItems }: IListProps) => {
   const isEvilMode = useSelector((state: RootState) => state.theme.isEvilMode);
+  const mortyData = useSelector((state: RootState) => state.mortyApi);
 
   return (
     <div
       className={`${styles.listWrapper} ${isEvilMode ? styles.evilTheme : ""}`}
     >
-      {errorStatus ? (
-        <ErrorText errorStatus={errorStatus} />
-      ) : isLoading ? (
+      {mortyData.errorStatus ? (
+        <ErrorText />
+      ) : mortyData.loading ? (
         <div className={styles.loadingWrapper}>
           <Loading />
         </div>
       ) : (
         <ul className={styles.searchItems}>
-          {apiData === undefined || isLoading ? (
+          {mortyData.data === undefined || mortyData.loading ? (
             <div className={styles.loadingWrapper}>
               <Loading />
             </div>
           ) : (
-            apiData?.map((obj: IAllCharacterProp) => {
+            mortyData.data?.map((obj: IAllCharacterProp) => {
               return (
                 <ListItem
                   handleClick={handleClick}

@@ -9,7 +9,6 @@ import { updateInput } from "../../../features/inputValue/inputValueSlice";
 const SeachInput = ({
   ulRef,
   inputRef,
-  setErrorStatus,
   selectedItems,
   setSelectedItems,
 }: ISeachInputProps) => {
@@ -27,7 +26,6 @@ const SeachInput = ({
 
   const handleChange = (e: any) => {
     dispatch(updateInput(e.target.value.toString()));
-    setErrorStatus(undefined);
   };
 
   return (

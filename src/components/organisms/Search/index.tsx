@@ -2,16 +2,10 @@ import React from "react";
 import SeachInput from "../../molecules/SearchInput/index";
 import List from "../List/index";
 import styles from "./search.module.scss";
-import { ISearchProps } from "../../../Interfaces/mortyUniverseInterface";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../app/store";
 
-const Seach = ({
-  isLoading,
-  apiData,
-  errorStatus,
-  setErrorStatus,
-}: ISearchProps) => {
+const Seach = () => {
   const [selectedItems, setSelectedItems] = React.useState<
     { id: string; name: string }[]
   >([]);
@@ -44,16 +38,12 @@ const Seach = ({
         <SeachInput
           ulRef={ulRef}
           inputRef={inputRef}
-          setErrorStatus={setErrorStatus}
           selectedItems={selectedItems}
           setSelectedItems={setSelectedItems}
         />
       </div>
       <List
         handleClick={handleClick}
-        isLoading={isLoading}
-        errorStatus={errorStatus}
-        apiData={apiData}
         selectedItems={selectedItems}
         setSelectedItems={setSelectedItems}
       />
