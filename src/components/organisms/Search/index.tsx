@@ -32,7 +32,7 @@ const Seach = () => {
         <h1 className={`${styles.pageTitle} ${isEvilMode ? "evilTheme" : ""}`}>
           {isEvilMode
             ? "The choice is yours... for now."
-            : "Uh, I-I don't know... W-which one is the best?"}
+            : "Uh, W-which one is the best?"}
         </h1>
 
         <SeachInput

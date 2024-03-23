@@ -16,7 +16,7 @@ const LandingPage = ({}) => {
   const spaceShip = {
     width: spaceShipRef.current?.scrollWidth ?? 200,
     height: spaceShipRef.current?.scrollHeight ?? 114,
-    speed: 3,
+    speed: 10,
     movementBoundary: {
       // -20 is for page padding
       x: width - (spaceShipRef.current?.scrollWidth ?? 220) - 20,
