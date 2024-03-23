@@ -36,7 +36,7 @@ const List = ({ handleClick, selectedItems, setSelectedItems }: IListProps) => {
                   selectedItems={selectedItems}
                   setSelectedItems={setSelectedItems}
                   id={obj.id.toString()}
-                  name={obj.name.trim()}
+                  name={obj.name}
                   image={obj.image}
                   episodes={obj.episode.length}
                 />

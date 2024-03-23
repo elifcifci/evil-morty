@@ -20,12 +20,7 @@ const MortyUniverse = () => {
   return (
     <div className={`pageWrapper ${styles.mortyUniverseWrapper}`}>
       {isEvilMode && (
-        <audio
-          loop
-          autoPlay
-          className="evil-audio"
-          src="../../../public/song/evil-song.mp3"
-        />
+        <audio loop autoPlay className="evil-audio" src="/song/evil-song.mp3" />
       )}
       <ThemeButton />
       <Seach />
