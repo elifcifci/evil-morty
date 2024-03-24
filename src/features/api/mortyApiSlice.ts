@@ -27,8 +27,11 @@ export const fetchData = createAsyncThunk(
 const mortyApiSlice = createSlice({
   name: 'mortyApi',
   initialState,
-  reducers: {},
-  extraReducers: (builder) => {
+  reducers: {
+    updateLoading(state) {
+      state.loading = true;
+    },
+  },  extraReducers: (builder) => {
     builder
       .addCase(fetchData.pending, (state) => {
         state.loading = true;
@@ -48,4 +51,4 @@ const mortyApiSlice = createSlice({
 });
 
 export default mortyApiSlice.reducer;
-export const {} = mortyApiSlice.actions;
+export const {updateLoading} = mortyApiSlice.actions;

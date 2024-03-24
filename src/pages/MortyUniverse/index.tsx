@@ -4,7 +4,7 @@ import Seach from "../../components/organisms/Search";
 import styles from "./styles.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../app/store";
-import { fetchData } from "../../features/api/mortyApiSlice";
+import { fetchData, updateLoading } from "../../features/api/mortyApiSlice";
 
 const MortyUniverse = () => {
   const isEvilMode = useSelector((state: RootState) => state.theme.isEvilMode);
@@ -14,7 +14,8 @@ const MortyUniverse = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   React.useEffect(() => {
-    setTimeout(() => dispatch(fetchData(inputValue)), 400);
+    dispatch(updateLoading());
+    dispatch(fetchData(inputValue));
   }, [inputValue]);
 
   return (

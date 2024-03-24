@@ -15,12 +15,12 @@ const List = ({ handleClick, selectedItems, setSelectedItems }: IListProps) => {
     <div
       className={`${styles.listWrapper} ${isEvilMode ? styles.evilTheme : ""}`}
     >
-      {mortyData.errorStatus ? (
-        <ErrorText />
-      ) : mortyData.loading ? (
+      {mortyData.loading ? (
         <div className={styles.loadingWrapper}>
           <Loading />
         </div>
+      ) : mortyData.errorStatus ? (
+        <ErrorText />
       ) : (
         <ul className={styles.searchItems}>
           {mortyData.data === undefined || mortyData.loading ? (
