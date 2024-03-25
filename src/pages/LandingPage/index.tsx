@@ -6,7 +6,7 @@ import UniverseList from "../../components/molecules/UniverseList";
 import useWindowDimensions from "../../utils/useWindowDimensions";
 import { keyboardList } from "../../constants/keyboard";
 import { IUniversePosition } from "../../Interfaces/landingPageInterfaces";
-import { handleKeyPressWithDelay } from "../../utils/handleKeyPressWithDelay";
+import { handleKeyPress } from "../../utils/handleKeyPress";
 import styles from "./styles.module.scss";
 
 const LandingPage = ({}) => {
@@ -16,7 +16,7 @@ const LandingPage = ({}) => {
   const spaceShip = {
     width: spaceShipRef.current?.scrollWidth ?? 200,
     height: spaceShipRef.current?.scrollHeight ?? 114,
-    speed: 10,
+    speed: 40,
     movementBoundary: {
       // -20 is for page padding
       x: width - (spaceShipRef.current?.scrollWidth ?? 220) - 20,
@@ -47,7 +47,7 @@ const LandingPage = ({}) => {
     };
 
     // movement request gets and position state update
-    const keydownListener = () =>
+    const keydownListener = () => {
       document.addEventListener("keydown", (e: any) => {
         const key = e.key.toLocaleLowerCase();
         if (
@@ -59,7 +59,7 @@ const LandingPage = ({}) => {
           setSelectedKey(key);
         }
 
-        handleKeyPressWithDelay(
+        handleKeyPress(
           height,
           universePosition,
           setItemPosition,
@@ -70,12 +70,12 @@ const LandingPage = ({}) => {
           navigate
         );
       });
+    };
 
     keyupListener();
     keydownListener();
 
     return () => {
-      // Cleanup functions:
       document.removeEventListener("keyup", keyupListener);
       document.removeEventListener("keydown", keydownListener);
     };
