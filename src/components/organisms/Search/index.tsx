@@ -14,11 +14,10 @@ const Seach = () => {
   const isEvilMode = useSelector((state: RootState) => state.theme.isEvilMode);
 
   const handleClick = () => {
-    if (inputRef.current !== null) {
-      inputRef.current.focus();
-      ulRef.current?.scrollIntoView({
-        block: "end",
-        behavior: "smooth",
+    if (ulRef.current !== null) {
+      ulRef.current.scroll({
+        top: 1000,
+        behavior: "smooth"
       });
     }
   };
@@ -32,7 +31,7 @@ const Seach = () => {
         <h1 className={`${styles.pageTitle} ${isEvilMode ? "evilTheme" : ""}`}>
           {isEvilMode
             ? "The choice is yours... for now."
-            : "Uh, W-which one is the best?"}
+            : "Uh, W-what should I write?"}
         </h1>
 
         <SeachInput

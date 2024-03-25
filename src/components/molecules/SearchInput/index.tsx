@@ -1,5 +1,5 @@
 import SelectedList from "../SelectedList";
-import { CaretDown } from "../../../../public/icons/CaretDown";
+import { Pen } from "../../../../public/icons/Pen";
 import { ISeachInputProps } from "../../../Interfaces/mortyUniverseInterface";
 import styles from "./searchInput.module.scss";
 import { useSelector, useDispatch } from "react-redux";
@@ -49,7 +49,7 @@ const SeachInput = ({
         </li>
       </ul>
 
-      <CaretDown className={styles.caretDown} iconSize="m" />
+      <Pen className={styles.caretDown} iconSize="s" />
     </div>
   );
 };
